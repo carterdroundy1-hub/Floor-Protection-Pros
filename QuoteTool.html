@@ -44,7 +44,7 @@
 
         .hero {
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-                        url('images/download.jpg') center/cover no-repeat;
+                        url("images/download.jpg") center/cover no-repeat;
             min-height: 320px;
             display: flex;
             align-items: center;
@@ -120,10 +120,6 @@
             margin-bottom: 12px;
         }
 
-        .content-block h3 {
-            margin-top: 0;
-        }
-
         .step-indicator {
             display: flex;
             gap: 10px;
@@ -144,58 +140,33 @@
             color: white;
         }
 
-        .option-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-            margin-top: 20px;
+        .question-shell {
+            max-width: 780px;
         }
 
-        .option-card {
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            padding: 18px;
-            cursor: pointer;
-            transition: 0.2s ease;
-            background-color: white;
+        .question-shell h2 {
+            margin-bottom: 10px;
         }
 
-        .option-card:hover {
-            border-color: #888;
-            transform: translateY(-2px);
-        }
-
-        .option-card.selected {
-            border-color: #111;
-            background-color: #111;
-            color: white;
-        }
-
-        .option-card.selected p,
-        .option-card.selected .small-note {
-            color: #e6e6e6;
-        }
-
-        .option-card h4 {
-            margin-top: 0;
+        .question-copy {
+            font-size: 1.02rem;
+            line-height: 1.7;
+            color: #444;
             margin-bottom: 8px;
-            font-size: 1.1rem;
         }
 
-        .option-card p {
-            margin: 0;
-            line-height: 1.5;
-            color: #555;
-        }
-
-        .small-note {
-            margin-top: 10px;
-            font-size: 0.92rem;
-            color: #666;
+        .context-note {
+            background-color: #f8f8f8;
+            border: 1px solid #e1e1e1;
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-top: 18px;
+            color: #444;
+            line-height: 1.6;
         }
 
         .form-row {
-            margin-top: 20px;
+            margin-top: 22px;
             max-width: 420px;
         }
 
@@ -213,8 +184,51 @@
             border: 1px solid #bbb;
         }
 
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 22px;
+            max-width: 620px;
+        }
+
+        .choice-card {
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            padding: 18px;
+            cursor: pointer;
+            transition: 0.2s ease;
+            background-color: white;
+        }
+
+        .choice-card:hover {
+            border-color: #888;
+            transform: translateY(-2px);
+        }
+
+        .choice-card.selected {
+            border-color: #111;
+            background-color: #111;
+            color: white;
+        }
+
+        .choice-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.12rem;
+        }
+
+        .choice-card p {
+            margin: 0;
+            color: #555;
+            line-height: 1.55;
+        }
+
+        .choice-card.selected p {
+            color: #e6e6e6;
+        }
+
         .button-row {
-            margin-top: 24px;
+            margin-top: 28px;
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
@@ -284,6 +298,10 @@
                 font-size: 1.8rem;
             }
 
+            .choice-grid {
+                grid-template-columns: 1fr;
+            }
+
             .breakdown-row {
                 flex-direction: column;
                 gap: 4px;
@@ -304,61 +322,47 @@
         <div class="hero-overlay">
             <h1>Get a Rough Quote Instantly</h1>
             <p>
-                Choose a product, pick a service, enter the approximate square footage,
-                and get a rough estimate right away.
+                Answer a few short project questions and we will build a rough estimate
+                around your square footage, service needs, and best-practice protection model.
             </p>
             <a class="hero-button" href="#quote-tool">Start Your Quote</a>
         </div>
     </div>
 
     <div class="main-content">
-
         <div class="content-block">
             <h2>How this works</h2>
             <p>
-                This tool gives a rough estimate based on the current pricing model.
-                Contractors can go back at any step and change a choice if needed before looking at the estimate.
+                This tool walks through the project one question at a time so the quote feels simpler and easier to review.
+                Every estimate starts with our best-practice protection system, then adds any follow-up services you want.
             </p>
 
             <div class="step-indicator">
-                <div class="step-pill active" id="pill1">1. Product</div>
-                <div class="step-pill" id="pill2">2. Service</div>
-                <div class="step-pill" id="pill3">3. Square Footage</div>
-                <div class="step-pill" id="pill4">4. Estimate</div>
+                <div class="step-pill active" id="pill1">1. Project</div>
+                <div class="step-pill" id="pill2">2. Patch-up</div>
+                <div class="step-pill" id="pill3">3. Cabinets</div>
+                <div class="step-pill" id="pill4">4. Stairs</div>
+                <div class="step-pill" id="pill5">5. Materials</div>
+                <div class="step-pill" id="pill6">6. Estimate</div>
             </div>
         </div>
 
         <div class="content-block" id="quote-tool">
+            <div id="step1" class="question-shell">
+                <h2>How big is the project?</h2>
+                <p class="question-copy">
+                    Start with the approximate square footage you want protected.
+                    This is the base for the install, labor, and follow-up service pricing.
+                </p>
 
-            <!-- STEP 1 -->
-            <div id="step1">
-                <h2>What type of product would you like?</h2>
-                <p>Choose the option that best fits the type of protection needed.</p>
+                <div class="form-row">
+                    <label for="squareFootage">Approximate square footage</label>
+                    <input type="number" id="squareFootage" min="1" placeholder="Example: 4000">
+                </div>
 
-                <div class="option-grid">
-                    <div class="option-card" onclick="selectProduct('best-practice')">
-                        <h4>Best-Practice</h4>
-                        <p>
-                            Most complete protection setup. Best for stronger coverage across finished floors during active construction.
-                        </p>
-                        <div class="small-note">Estimated at $0.36 per sq/ft</div>
-                    </div>
-
-                    <div class="option-card" onclick="selectProduct('cardboard')">
-                        <h4>Cardboard</h4>
-                        <p>
-                            Lower-cost option built around cardboard protection. Good for more budget-conscious jobs.
-                        </p>
-                        <div class="small-note">Estimated at $0.29 per sq/ft</div>
-                    </div>
-
-                    <div class="option-card" onclick="selectProduct('ram-board')">
-                        <h4>Ram Board</h4>
-                        <p>
-                            Solid mid-range option centered on Ram Board coverage. Good balance of durability and price.
-                        </p>
-                        <div class="small-note">Estimated at $0.33 per sq/ft</div>
-                    </div>
+                <div class="context-note">
+                    Best-practice pricing uses our Floorotex, cardboard, and multi-tape system.
+                    Smaller jobs under 1,000 sq/ft may carry an added trip charge.
                 </div>
 
                 <div class="button-row">
@@ -366,50 +370,26 @@
                 </div>
             </div>
 
-            <!-- STEP 2 -->
-            <div id="step2" class="hidden">
-                <h2>What kind of service would you like?</h2>
-                <p>Choose the service option that best matches the job.</p>
+            <div id="step2" class="question-shell hidden">
+                <h2>Would you like ongoing patch-up service?</h2>
+                <p class="question-copy">
+                    During active construction, floor protection can wear down in traffic paths.
+                    We can come out twice each month to patch worn areas and keep the protection looking clean and secure.
+                </p>
 
-                <div class="option-grid">
-                    <div class="option-card" onclick="selectService('initial-install')">
-                        <h4>Initial Install</h4>
-                        <p>
-                            Professional installation of floor protection only.
-                        </p>
+                <div class="choice-grid">
+                    <div class="choice-card" data-group="monthly" onclick="setChoice('monthly', true, event)">
+                        <h3>Yes</h3>
+                        <p>Add twice-a-month patch-up service after the initial install.</p>
                     </div>
-
-                    <div class="option-card" onclick="selectService('monthly-patch-up')">
-                        <h4>Monthly Patch-up</h4>
-                        <p>
-                            Initial install plus monthly patch-up pricing based on the selected month count.
-                        </p>
-                    </div>
-
-                    <div class="option-card" onclick="selectService('post-cabinet-recover')">
-                        <h4>Post Cabinet Install Re-cover</h4>
-                        <p>
-                            Initial install plus a re-cover after cabinet installation.
-                        </p>
-                    </div>
-
-                    <div class="option-card" onclick="selectService('extra-materials')">
-                        <h4>Extra Materials Left After Initial Install</h4>
-                        <p>
-                            Initial install plus extra materials left on site for later use.
-                        </p>
-                    </div>
-
-                    <div class="option-card" onclick="selectService('monthly-patch-recover')">
-                        <h4>Monthly Patch & Re-cover</h4>
-                        <p>
-                            Initial install plus monthly patch-ups and a post-cabinet re-cover.
-                        </p>
+                    <div class="choice-card" data-group="monthly" onclick="setChoice('monthly', false, event)">
+                        <h3>No</h3>
+                        <p>Just quote the install without ongoing monthly patch-up visits.</p>
                     </div>
                 </div>
 
                 <div class="form-row hidden" id="monthsRow">
-                    <label for="months">How many months of patch-up work should be included?</label>
+                    <label for="months">How many months of twice-a-month patch-up work should be included?</label>
                     <input type="number" id="months" min="1" max="24" value="4">
                 </div>
 
@@ -419,30 +399,80 @@
                 </div>
             </div>
 
-            <!-- STEP 3 -->
-            <div id="step3" class="hidden">
-                <h2>How much square footage needs to be covered?</h2>
-                <p>
-                    Most likely not the full square footage of the house, unless you want all floors covered.
+            <div id="step3" class="question-shell hidden">
+                <h2>Would you like us to return after cabinets are installed?</h2>
+                <p class="question-copy">
+                    When cabinets are installed, subcontractors typically remove some of our floor protection,
+                    which can create added risk in high-traffic finished areas.
+                    We can come back and re-cover those spaces after cabinet install.
                 </p>
 
-                <div class="form-row">
-                    <label for="squareFootage">Approximate square footage</label>
-                    <input type="number" id="squareFootage" min="1" placeholder="Example: 4000">
-                </div>
-
-                <div class="note-box">
-                    Smaller jobs under 1,000 sq/ft may carry an added trip charge in the estimate.
+                <div class="choice-grid">
+                    <div class="choice-card" data-group="recover" onclick="setChoice('recover', true, event)">
+                        <h3>Yes</h3>
+                        <p>Add a post-cabinet re-cover visit to restore protection in those areas.</p>
+                    </div>
+                    <div class="choice-card" data-group="recover" onclick="setChoice('recover', false, event)">
+                        <h3>No</h3>
+                        <p>Do not add a return visit after cabinet installation.</p>
+                    </div>
                 </div>
 
                 <div class="button-row">
                     <button class="secondary-button" onclick="goToStep(2)">Back</button>
-                    <button class="hero-button" onclick="goToStep(4)">See My Estimate</button>
+                    <button class="hero-button" onclick="goToStep(4)">Continue</button>
                 </div>
             </div>
 
-            <!-- STEP 4 -->
-            <div id="step4" class="hidden">
+            <div id="step4" class="question-shell hidden">
+                <h2>Would you like us to come back to cover finished stairs?</h2>
+                <p class="question-copy">
+                    It is typical for stairs to be finished after the flooring is installed.
+                    We can come back when that stair finish goes on and protect those surfaces as part of the project.
+                </p>
+
+                <div class="choice-grid">
+                    <div class="choice-card" data-group="stairs" onclick="setChoice('stairs', true, event)">
+                        <h3>Yes</h3>
+                        <p>Add a stairs visit after the stair finish is complete.</p>
+                    </div>
+                    <div class="choice-card" data-group="stairs" onclick="setChoice('stairs', false, event)">
+                        <h3>No</h3>
+                        <p>Do not add a separate stair protection visit.</p>
+                    </div>
+                </div>
+
+                <div class="button-row">
+                    <button class="secondary-button" onclick="goToStep(3)">Back</button>
+                    <button class="hero-button" onclick="goToStep(5)">Continue</button>
+                </div>
+            </div>
+
+            <div id="step5" class="question-shell hidden">
+                <h2>Would you like extra protection materials left on site?</h2>
+                <p class="question-copy">
+                    Some builders like having extra material on hand for quick touch-ups between visits.
+                    We can include that as part of the project if you want it available.
+                </p>
+
+                <div class="choice-grid">
+                    <div class="choice-card" data-group="extra" onclick="setChoice('extra', true, event)">
+                        <h3>Yes</h3>
+                        <p>Include extra materials left on site after the initial install.</p>
+                    </div>
+                    <div class="choice-card" data-group="extra" onclick="setChoice('extra', false, event)">
+                        <h3>No</h3>
+                        <p>Do not add extra materials beyond the normal install scope.</p>
+                    </div>
+                </div>
+
+                <div class="button-row">
+                    <button class="secondary-button" onclick="goToStep(4)">Back</button>
+                    <button class="hero-button" onclick="goToStep(6)">See My Estimate</button>
+                </div>
+            </div>
+
+            <div id="step6" class="hidden">
                 <h2 id="result-section">Your Rough Estimate</h2>
                 <p>
                     Review the estimate below. Use the back buttons if anything needs to be changed.
@@ -458,11 +488,7 @@
                     <strong>Your selections</strong>
                     <div class="breakdown">
                         <div class="breakdown-row">
-                            <span>Product</span>
-                            <span id="summaryProduct">-</span>
-                        </div>
-                        <div class="breakdown-row">
-                            <span>Service</span>
+                            <span>Service package</span>
                             <span id="summaryService">-</span>
                         </div>
                         <div class="breakdown-row">
@@ -470,7 +496,7 @@
                             <span id="summarySqft">-</span>
                         </div>
                         <div class="breakdown-row hidden" id="summaryMonthsRow">
-                            <span>Months</span>
+                            <span>Months of patch-up</span>
                             <span id="summaryMonths">-</span>
                         </div>
                     </div>
@@ -480,8 +506,8 @@
                     <strong>Estimate breakdown</strong>
                     <div class="breakdown">
                         <div class="breakdown-row">
-                            <span>Product price</span>
-                            <span id="breakdownProductPrice">$0.00</span>
+                            <span>Protection price</span>
+                            <span id="breakdownProtectionPrice">$0.00</span>
                         </div>
                         <div class="breakdown-row">
                             <span>Labor</span>
@@ -503,22 +529,45 @@
                             <span>Post cabinet re-cover</span>
                             <span id="breakdownRecoverValue">$0.00</span>
                         </div>
+                        <div class="breakdown-row hidden" id="breakdownStairsRow">
+                            <span>Cover stairs post initial install</span>
+                            <span id="breakdownStairsValue">$0.00</span>
+                        </div>
                         <div class="breakdown-row hidden" id="breakdownExtraRow">
                             <span>Extra materials left on site</span>
                             <span id="breakdownExtraValue">$0.00</span>
                         </div>
                     </div>
                 </div>
+<div class="content-block" style="margin-top:20px; text-align:center;">
+    <h3 style="margin-bottom:10px;">Want a finalized quote?</h3>
+    <p style="margin-bottom:18px; color:#444;">
+        This is a rough estimate. For a confirmed quote based on your exact project details,
+        reach out today and we’ll get you taken care of quickly.
+    </p>
 
+   <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=floorprotectionpros@gmail.com&su=Floor%20Protection%20Quote%20Request" 
+   target="_blank" 
+   class="hero-button">
+    Email Us
+</a>
+    </a>
+
+    <a href="tel:+13855609171" class="secondary-button">
+        Call / Text (385) 560-9171
+    </a>
+</div>
+</div>
                 <div class="note-box">
                     This is only a rough estimate. Final pricing could change after a walkthrough,
                     after confirming which floors need protection, or after changes to service needs.
+                    Labor is currently scaled by project size from the average-job model inputs.
                 </div>
 
                 <div class="button-row">
-                    <button class="secondary-button" onclick="goToStep(3)">Back</button>
-                    <button class="secondary-button" onclick="goToStep(2)">Change Service</button>
-                    <button class="secondary-button" onclick="goToStep(1)">Change Product</button>
+                    <button class="secondary-button" onclick="goToStep(5)">Back</button>
+                    <button class="secondary-button" onclick="goToStep(2)">Change Answers</button>
                     <button class="hero-button" onclick="resetQuote()">Start Over</button>
                 </div>
             </div>
@@ -526,58 +575,23 @@
     </div>
 
     <script>
-        const PRODUCTS = {
-            "best-practice": {
-                name: "best-practice model",
-                displayName: "Best-Practice",
-                pricePerSqFt: 0.36,
-                materialCostPerSqFt: 0.31
-            },
-            "cardboard": {
-                name: "cardboard model",
-                displayName: "Cardboard",
-                pricePerSqFt: 0.29,
-                materialCostPerSqFt: 0.26
-            },
-            "ram-board": {
-                name: "ram board model",
-                displayName: "Ram Board",
-                pricePerSqFt: 0.33,
-                materialCostPerSqFt: 0.30
-            }
-        };
-
-        const SERVICES = {
-            "initial-install": {
-                name: "initial install",
-                displayName: "Initial Install"
-            },
-            "monthly-patch-up": {
-                name: "monthly repairs",
-                displayName: "Monthly Patch-up"
-            },
-            "post-cabinet-recover": {
-                name: "post cabinet re-cover",
-                displayName: "Post Cabinet Install Re-cover"
-            },
-            "extra-materials": {
-                name: "extra materials left after initial install",
-                displayName: "Extra Materials Left After Initial Install"
-            },
-            "monthly-patch-recover": {
-                name: "monthly repairs and post cabinet re-cover",
-                displayName: "Monthly Patch & Re-cover"
-            }
-        };
-
-        let selectedProduct = "";
-        let selectedService = "";
-
+        const BEST_PRACTICE_PRICE_PER_SQFT = 0.36;
+        const BEST_PRACTICE_MATERIAL_COST_PER_SQFT = 0.31;
+        const AVG_JOB_SIZE = 5000;
         const LABOR_RATE = 80;
-        const HOURS_PER_JOB = 10;
+        const HOURS_PER_AVG_JOB = 10;
         const TRAVEL_COST_PER_HOUR = 50;
         const AVG_TRAVEL_TIME_HOURS = 1.5;
         const SMALL_JOB_TRIP_CHARGE = 200;
+
+        const quoteState = {
+            sqft: 0,
+            wantsMonthly: false,
+            months: 4,
+            wantsRecover: false,
+            wantsStairs: false,
+            wantsExtra: false
+        };
 
         function formatCurrency(value) {
             return value.toLocaleString("en-US", {
@@ -590,39 +604,55 @@
             return Number(value).toLocaleString("en-US");
         }
 
+        function roundToHalf(value) {
+            return Math.round(value * 2) / 2;
+        }
+
         function updateStepPills(step) {
-            for (let i = 1; i <= 4; i++) {
+            for (let i = 1; i <= 6; i++) {
                 document.getElementById("pill" + i).classList.remove("active");
             }
             document.getElementById("pill" + step).classList.add("active");
         }
 
         function hideAllSteps() {
-            document.getElementById("step1").classList.add("hidden");
-            document.getElementById("step2").classList.add("hidden");
-            document.getElementById("step3").classList.add("hidden");
-            document.getElementById("step4").classList.add("hidden");
+            for (let i = 1; i <= 6; i++) {
+                document.getElementById("step" + i).classList.add("hidden");
+            }
         }
 
         function goToStep(step) {
-            if (step === 2 && !selectedProduct) {
-                alert("Please choose a product first.");
-                return;
-            }
-
-            if (step === 3 && !selectedService) {
-                alert("Please choose a service first.");
-                return;
-            }
-
-            if (step === 4) {
+            if (step >= 2) {
                 const sqft = Number(document.getElementById("squareFootage").value);
-
                 if (!sqft || sqft <= 0) {
                     alert("Please enter a valid square footage.");
                     return;
                 }
+                quoteState.sqft = sqft;
+            }
 
+            if (step >= 3 && !hasChoice("monthly")) {
+                alert("Please answer the patch-up question first.");
+                return;
+            }
+
+            if (step >= 4 && !hasChoice("recover")) {
+                alert("Please answer the cabinet question first.");
+                return;
+            }
+
+            if (step >= 5 && !hasChoice("stairs")) {
+                alert("Please answer the stairs question first.");
+                return;
+            }
+
+            if (step >= 6 && !hasChoice("extra")) {
+                alert("Please answer the extra materials question first.");
+                return;
+            }
+
+            if (step === 6) {
+                quoteState.months = Number(document.getElementById("months").value) || 1;
                 calculateQuote();
             }
 
@@ -632,120 +662,159 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
 
-        function clearSelections(selector) {
-            document.querySelectorAll(selector).forEach(card => {
+        function hasChoice(group) {
+            return document.querySelector(`.choice-card[data-group="${group}"].selected`) !== null;
+        }
+
+        function setChoice(group, value, event) {
+            document.querySelectorAll(`.choice-card[data-group="${group}"]`).forEach(card => {
                 card.classList.remove("selected");
             });
-        }
 
-        function selectProduct(productId) {
-            selectedProduct = productId;
-            clearSelections("#step1 .option-card");
-            event.currentTarget.classList.add("selected");
-        }
-
-        function selectService(serviceId) {
-            selectedService = serviceId;
-            clearSelections("#step2 .option-card");
             event.currentTarget.classList.add("selected");
 
-            const monthsRow = document.getElementById("monthsRow");
-            if (serviceId === "monthly-patch-up" || serviceId === "monthly-patch-recover") {
-                monthsRow.classList.remove("hidden");
-            } else {
-                monthsRow.classList.add("hidden");
+            if (group === "monthly") {
+                quoteState.wantsMonthly = value;
+                const monthsRow = document.getElementById("monthsRow");
+                if (value) {
+                    monthsRow.classList.remove("hidden");
+                } else {
+                    monthsRow.classList.add("hidden");
+                }
+            } else if (group === "recover") {
+                quoteState.wantsRecover = value;
+            } else if (group === "stairs") {
+                quoteState.wantsStairs = value;
+            } else if (group === "extra") {
+                quoteState.wantsExtra = value;
             }
         }
 
+        function getServiceSummary() {
+            const parts = ["Initial Install"];
+
+            if (quoteState.wantsMonthly) {
+                parts.push("Monthly Patch-up");
+            }
+
+            if (quoteState.wantsRecover) {
+                parts.push("Post Cabinet Re-cover");
+            }
+
+            if (quoteState.wantsStairs) {
+                parts.push("Stairs Coverage");
+            }
+
+            if (quoteState.wantsExtra) {
+                parts.push("Extra Materials");
+            }
+
+            return parts.join(" + ");
+        }
+
         function calculateQuote() {
-            const product = PRODUCTS[selectedProduct];
-            const service = SERVICES[selectedService];
-            const sqft = Number(document.getElementById("squareFootage").value);
-            const months = Number(document.getElementById("months").value) || 1;
-
-            const productPrice = product.pricePerSqFt * sqft;
-            const productMaterialCost = product.materialCostPerSqFt * sqft;
-            const laborCost = LABOR_RATE * HOURS_PER_JOB;
+            const protectionPrice = BEST_PRACTICE_PRICE_PER_SQFT * quoteState.sqft;
+            const protectionMaterialCost = BEST_PRACTICE_MATERIAL_COST_PER_SQFT * quoteState.sqft;
+            const laborHours = roundToHalf((quoteState.sqft / AVG_JOB_SIZE) * HOURS_PER_AVG_JOB);
+            const laborCost = LABOR_RATE * laborHours;
             const baseTravel = TRAVEL_COST_PER_HOUR * AVG_TRAVEL_TIME_HOURS;
-            const travelCost = sqft > 1000 ? baseTravel : baseTravel + SMALL_JOB_TRIP_CHARGE;
+            const travelCost = quoteState.sqft > 1000 ? baseTravel : baseTravel + SMALL_JOB_TRIP_CHARGE;
 
-            const initialInstall = productPrice + laborCost + travelCost;
-            const monthlyPatchPrice = 0.05 * initialInstall;
+            const initialInstall = protectionPrice + laborCost + travelCost;
+            const monthlyPatchPrice = 0.10 * initialInstall;
             const postCabinetRecoverPrice = 0.25 * initialInstall;
-            const extraMaterialsPrice = productPrice - productMaterialCost;
+            const stairsPostInstallPrice = 0.08 * initialInstall;
+            const extraMaterialsPrice = protectionPrice - protectionMaterialCost;
 
             let total = initialInstall;
 
-            if (selectedService === "monthly-patch-up") {
-                total = initialInstall + (monthlyPatchPrice * months);
-            } else if (selectedService === "post-cabinet-recover") {
-                total = initialInstall + postCabinetRecoverPrice;
-            } else if (selectedService === "extra-materials") {
-                total = initialInstall + extraMaterialsPrice;
-            } else if (selectedService === "monthly-patch-recover") {
-                total = initialInstall + postCabinetRecoverPrice + (monthlyPatchPrice * months);
+            if (quoteState.wantsMonthly) {
+                total += monthlyPatchPrice * quoteState.months;
+            }
+
+            if (quoteState.wantsRecover) {
+                total += postCabinetRecoverPrice;
+            }
+
+            if (quoteState.wantsStairs) {
+                total += stairsPostInstallPrice;
+            }
+
+            if (quoteState.wantsExtra) {
+                total += extraMaterialsPrice;
             }
 
             document.getElementById("estimateNumber").textContent = formatCurrency(total);
 
-            let sentence = `For the ${product.name}, with ${service.name} on ${formatNumber(sqft)} sq/ft, your rough estimate is ${formatCurrency(total)}.`;
+            let sentence = `For ${getServiceSummary()} on ${formatNumber(quoteState.sqft)} sq/ft, your rough estimate is ${formatCurrency(total)}.`;
 
-            if (selectedService === "monthly-patch-up" || selectedService === "monthly-patch-recover") {
-                sentence = `For the ${product.name}, with ${service.name} for ${months} month(s) on ${formatNumber(sqft)} sq/ft, your rough estimate is ${formatCurrency(total)}.`;
+            if (quoteState.wantsMonthly) {
+                sentence = `For ${getServiceSummary()} with ${quoteState.months} month(s) of twice-a-month patch-up service on ${formatNumber(quoteState.sqft)} sq/ft, your rough estimate is ${formatCurrency(total)}.`;
             }
 
             document.getElementById("estimateSentence").textContent = sentence;
-
-            document.getElementById("summaryProduct").textContent = product.displayName;
-            document.getElementById("summaryService").textContent = service.displayName;
-            document.getElementById("summarySqft").textContent = formatNumber(sqft) + " sq/ft";
+            document.getElementById("summaryService").textContent = getServiceSummary();
+            document.getElementById("summarySqft").textContent = formatNumber(quoteState.sqft) + " sq/ft";
 
             const summaryMonthsRow = document.getElementById("summaryMonthsRow");
-            if (selectedService === "monthly-patch-up" || selectedService === "monthly-patch-recover") {
+            if (quoteState.wantsMonthly) {
                 summaryMonthsRow.classList.remove("hidden");
-                document.getElementById("summaryMonths").textContent = months;
+                document.getElementById("summaryMonths").textContent = quoteState.months;
             } else {
                 summaryMonthsRow.classList.add("hidden");
             }
 
-            document.getElementById("breakdownProductPrice").textContent = formatCurrency(productPrice);
+            document.getElementById("breakdownProtectionPrice").textContent = formatCurrency(protectionPrice);
             document.getElementById("breakdownLabor").textContent = formatCurrency(laborCost);
             document.getElementById("breakdownTravel").textContent = formatCurrency(travelCost);
             document.getElementById("breakdownInitial").textContent = formatCurrency(initialInstall);
 
             const monthlyRow = document.getElementById("breakdownMonthlyRow");
             const recoverRow = document.getElementById("breakdownRecoverRow");
+            const stairsRow = document.getElementById("breakdownStairsRow");
             const extraRow = document.getElementById("breakdownExtraRow");
 
             monthlyRow.classList.add("hidden");
             recoverRow.classList.add("hidden");
+            stairsRow.classList.add("hidden");
             extraRow.classList.add("hidden");
 
-            if (selectedService === "monthly-patch-up" || selectedService === "monthly-patch-recover") {
+            if (quoteState.wantsMonthly) {
                 monthlyRow.classList.remove("hidden");
-                document.getElementById("breakdownMonthlyLabel").textContent = `Monthly patch-up × ${months}`;
-                document.getElementById("breakdownMonthlyValue").textContent = formatCurrency(monthlyPatchPrice * months);
+                document.getElementById("breakdownMonthlyLabel").textContent = `Monthly patch-up (twice a month) x ${quoteState.months}`;
+                document.getElementById("breakdownMonthlyValue").textContent = formatCurrency(monthlyPatchPrice * quoteState.months);
             }
 
-            if (selectedService === "post-cabinet-recover" || selectedService === "monthly-patch-recover") {
+            if (quoteState.wantsRecover) {
                 recoverRow.classList.remove("hidden");
                 document.getElementById("breakdownRecoverValue").textContent = formatCurrency(postCabinetRecoverPrice);
             }
 
-            if (selectedService === "extra-materials") {
+            if (quoteState.wantsStairs) {
+                stairsRow.classList.remove("hidden");
+                document.getElementById("breakdownStairsValue").textContent = formatCurrency(stairsPostInstallPrice);
+            }
+
+            if (quoteState.wantsExtra) {
                 extraRow.classList.remove("hidden");
                 document.getElementById("breakdownExtraValue").textContent = formatCurrency(extraMaterialsPrice);
             }
         }
 
         function resetQuote() {
-            selectedProduct = "";
-            selectedService = "";
+            quoteState.sqft = 0;
+            quoteState.wantsMonthly = false;
+            quoteState.months = 4;
+            quoteState.wantsRecover = false;
+            quoteState.wantsStairs = false;
+            quoteState.wantsExtra = false;
+
             document.getElementById("squareFootage").value = "";
             document.getElementById("months").value = 4;
             document.getElementById("monthsRow").classList.add("hidden");
+            document.getElementById("summaryMonthsRow").classList.add("hidden");
 
-            document.querySelectorAll(".option-card").forEach(card => {
+            document.querySelectorAll(".choice-card").forEach(card => {
                 card.classList.remove("selected");
             });
 

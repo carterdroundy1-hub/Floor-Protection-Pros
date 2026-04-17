@@ -198,6 +198,162 @@ body {
     object-fit: cover;
 }
 
+.portfolio-block {
+    border-left: none;
+    border: 1px solid rgba(217, 179, 108, 0.3);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03)),
+        rgba(17, 17, 17, 0.78);
+}
+
+.portfolio-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.portfolio-heading h2 {
+    margin-bottom: 10px;
+}
+
+.portfolio-note {
+    max-width: 320px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(217, 179, 108, 0.22);
+    color: #f5f1e2;
+    font-size: 0.95rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.portfolio-card {
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(217, 179, 108, 0.2);
+    border-radius: 18px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-card-wide {
+    grid-column: 1 / -1;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: 320px;
+    display: block;
+    object-fit: cover;
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.portfolio-card-wide .portfolio-image {
+    height: 420px;
+}
+
+.portfolio-copy {
+    padding: 22px 22px 24px;
+}
+
+.portfolio-kicker {
+    margin: 0 0 8px 0;
+    color: #f3e1a5;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.portfolio-copy h3 {
+    margin: 0 0 10px 0;
+    color: #ffffff;
+    font-size: 1.45rem;
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+
+.portfolio-copy p:last-child {
+    margin-bottom: 0;
+}
+
+.system-block {
+    border-left: none;
+    border: 1px solid rgba(217, 179, 108, 0.3);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.03)),
+        rgba(17, 17, 17, 0.78);
+}
+
+.system-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 26px;
+}
+
+.system-note {
+    max-width: 330px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(217, 179, 108, 0.22);
+    color: #f5f1e2;
+    font-size: 0.95rem;
+}
+
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.system-card {
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(217, 179, 108, 0.2);
+    border-radius: 18px;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+}
+
+.system-image {
+    width: 100%;
+    height: 220px;
+    display: block;
+    object-fit: cover;
+    background-color: #f5f1e2;
+}
+
+.system-copy {
+    padding: 20px 20px 22px;
+}
+
+.system-kicker {
+    margin: 0 0 8px 0;
+    color: #f3e1a5;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.system-copy h3 {
+    margin: 0 0 10px 0;
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+
+.system-copy p:last-child {
+    margin-bottom: 0;
+}
+
 .contact-info {
     max-width: 460px;
     margin: 24px auto 0 auto;
@@ -228,28 +384,73 @@ body {
     text-align: center;
 }
 
-.video-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto 0 auto;
-    aspect-ratio: 16 / 9;
+.founder-intro {
+    max-width: 760px;
+    margin: 0 auto 10px auto;
 }
 
-.video-wrapper iframe {
+.founder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 34px;
+    text-align: left;
+}
+
+.founder-card {
+    position: relative;
+    overflow: hidden;
+    padding: 28px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+    border: 1px solid rgba(217, 179, 108, 0.3);
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.founder-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #8a6a2f, #d9b36c, #f3e1a5);
+}
+
+.founder-photo-frame {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    border-radius: 24px;
+    padding: 4px;
+    background: linear-gradient(135deg, rgba(243, 225, 165, 0.9), rgba(138, 106, 47, 0.9));
+}
+
+.founder-photo {
     width: 100%;
     height: 100%;
-    border: 0;
-    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
-.tableau-placeholder {
-    margin-top: 20px;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.06);
-    border: 2px dashed #d9b36c;
-    border-radius: 10px;
-    text-align: center;
+.founder-label {
+    margin: 0 0 8px 0;
+    color: #f3e1a5;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.founder-card h3 {
+    margin: 0 0 10px 0;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+}
+
+.founder-card p:last-child {
+    margin-bottom: 0;
 }
 
 .callout-box {
@@ -268,5 +469,49 @@ body {
     .top-nav a {
         display: inline-block;
         margin: 8px 10px;
+    }
+
+    .portfolio-heading {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .system-heading {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .portfolio-note {
+        max-width: none;
+    }
+
+    .system-note {
+        max-width: none;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .system-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-image,
+    .portfolio-card-wide .portfolio-image {
+        height: 260px;
+    }
+
+    .system-image {
+        height: 240px;
+    }
+
+    .founder-photo-frame {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .founder-card {
+        text-align: center;
     }
 }
