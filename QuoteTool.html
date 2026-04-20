@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floor Protection Pros | Instant Quote</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f4f4;
+            background: #f4f4f4;
             color: #222;
         }
 
@@ -38,57 +34,69 @@
             font-weight: bold;
         }
 
-        .top-nav a:hover {
-            text-decoration: underline;
-        }
+        .top-nav a:hover { text-decoration: underline; }
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+            background: linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.58)),
                         url("images/download.jpg") center/cover no-repeat;
-            min-height: 320px;
+            min-height: 360px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 52px 20px;
         }
 
         .hero-overlay {
-            max-width: 900px;
+            max-width: 940px;
             text-align: center;
             color: white;
         }
 
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.18);
+            font-size: 0.92rem;
+            margin-bottom: 16px;
+        }
+
         .hero-overlay h1 {
-            margin-bottom: 12px;
-            font-size: 2.6rem;
+            margin: 0 0 12px 0;
+            font-size: 2.8rem;
+            line-height: 1.1;
         }
 
         .hero-overlay p {
             font-size: 1.05rem;
-            line-height: 1.6;
+            line-height: 1.7;
             max-width: 760px;
-            margin: 0 auto 18px auto;
+            margin: 0 auto 20px auto;
         }
 
         .hero-button,
-        .secondary-button {
+        .secondary-button,
+        .ghost-button {
             display: inline-block;
-            padding: 12px 22px;
-            border-radius: 8px;
+            padding: 13px 22px;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: bold;
             cursor: pointer;
             border: none;
             font-size: 1rem;
+            transition: 0.18s ease;
         }
 
         .hero-button {
-            background-color: #1f1f1f;
+            background-color: #111;
             color: white;
         }
 
         .hero-button:hover {
             background-color: #333;
+            transform: translateY(-1px);
         }
 
         .secondary-button {
@@ -97,22 +105,29 @@
             border: 1px solid #ccc;
         }
 
-        .secondary-button:hover {
+        .secondary-button:hover,
+        .ghost-button:hover {
             background-color: #f1f1f1;
         }
 
+        .ghost-button {
+            background-color: #f8f8f8;
+            color: #222;
+            border: 1px solid #e2e2e2;
+        }
+
         .main-content {
-            max-width: 1050px;
+            max-width: 1180px;
             margin: 0 auto;
-            padding: 30px 20px 60px 20px;
+            padding: 30px 20px 70px 20px;
         }
 
         .content-block {
             background-color: white;
             margin-bottom: 24px;
             padding: 28px;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            border-radius: 16px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
         }
 
         .content-block h2 {
@@ -120,11 +135,40 @@
             margin-bottom: 12px;
         }
 
+        .trust-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .trust-pill {
+            background: #f7f7f7;
+            border: 1px solid #e6e6e6;
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        .layout-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.28fr) minmax(320px, 0.72fr);
+            gap: 22px;
+            align-items: start;
+        }
+
+        .sticky-column {
+            position: sticky;
+            top: 92px;
+        }
+
         .step-indicator {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin: 18px 0 10px 0;
+            margin: 18px 0 0 0;
         }
 
         .step-pill {
@@ -140,10 +184,6 @@
             color: white;
         }
 
-        .question-shell {
-            max-width: 780px;
-        }
-
         .question-shell h2 {
             margin-bottom: 10px;
         }
@@ -152,18 +192,21 @@
             font-size: 1.02rem;
             line-height: 1.7;
             color: #444;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
-        .context-note {
+        .context-note,
+        .tip-box {
             background-color: #f8f8f8;
-            border: 1px solid #e1e1e1;
-            border-radius: 12px;
+            border: 1px solid #e2e2e2;
+            border-radius: 14px;
             padding: 16px 18px;
             margin-top: 18px;
             color: #444;
-            line-height: 1.6;
+            line-height: 1.65;
         }
+
+        .tip-box strong { color: #111; }
 
         .form-row {
             margin-top: 22px;
@@ -178,53 +221,134 @@
 
         input[type="number"] {
             width: 100%;
-            padding: 12px 14px;
+            padding: 13px 14px;
             font-size: 1rem;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid #bbb;
+            background: white;
         }
 
-        .choice-grid {
+        .quick-size-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .quick-size-row button {
+            border: 1px solid #dadada;
+            background: white;
+            border-radius: 999px;
+            padding: 9px 14px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .quick-size-row button:hover {
+            background: #f6f6f6;
+        }
+
+        .package-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 16px;
-            margin-top: 22px;
-            max-width: 620px;
+            margin-top: 20px;
         }
 
-        .choice-card {
+        .package-card,
+        .addon-card {
             border: 2px solid #ddd;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 18px;
             cursor: pointer;
-            transition: 0.2s ease;
-            background-color: white;
+            transition: 0.18s ease;
+            background: white;
         }
 
-        .choice-card:hover {
+        .package-card:hover,
+        .addon-card:hover {
             border-color: #888;
             transform: translateY(-2px);
         }
 
-        .choice-card.selected {
+        .package-card.selected,
+        .addon-card.selected {
             border-color: #111;
-            background-color: #111;
+            background: #111;
             color: white;
         }
 
-        .choice-card h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.12rem;
+        .package-badge,
+        .addon-badge {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: bold;
+            border-radius: 999px;
+            padding: 6px 10px;
+            margin-bottom: 12px;
+            background: #f0f0f0;
+            color: #222;
         }
 
-        .choice-card p {
-            margin: 0;
+        .package-card.selected .package-badge,
+        .addon-card.selected .addon-badge {
+            background: rgba(255,255,255,0.14);
+            color: white;
+        }
+
+        .package-card h3,
+        .addon-card h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.16rem;
+        }
+
+        .package-card p,
+        .addon-card p {
+            margin: 0 0 12px 0;
             color: #555;
             line-height: 1.55;
         }
 
-        .choice-card.selected p {
+        .package-card.selected p,
+        .addon-card.selected p {
             color: #e6e6e6;
+        }
+
+        .package-list,
+        .addon-list {
+            margin: 0;
+            padding-left: 18px;
+            color: #444;
+            line-height: 1.55;
+        }
+
+        .package-card.selected .package-list,
+        .addon-card.selected .addon-list {
+            color: #f1f1f1;
+        }
+
+        .package-price-note,
+        .micro-note {
+            margin-top: 12px;
+            font-size: 0.92rem;
+            color: #666;
+        }
+
+        .package-card.selected .package-price-note,
+        .addon-card.selected .micro-note {
+            color: #d8d8d8;
+        }
+
+        .addons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .months-wrap {
+            max-width: 360px;
+            margin-top: 18px;
         }
 
         .button-row {
@@ -234,77 +358,118 @@
             gap: 12px;
         }
 
-        .estimate-box {
-            background-color: #111;
-            color: white;
-            border-radius: 12px;
-            padding: 24px;
-            margin-top: 20px;
+        .summary-panel {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            overflow: hidden;
         }
 
-        .estimate-box .estimate-label {
-            font-size: 0.95rem;
-            color: #ccc;
+        .summary-top {
+            background: #111;
+            color: white;
+            padding: 24px;
+        }
+
+        .summary-top .small {
+            color: #d2d2d2;
+            font-size: 0.92rem;
             margin-bottom: 8px;
         }
 
-        .estimate-box .estimate-number {
-            font-size: 2.2rem;
+        .summary-top .price {
+            font-size: 2.25rem;
+            font-weight: bold;
+            line-height: 1.1;
+        }
+
+        .summary-top .sentence {
+            margin-top: 12px;
+            color: #f0f0f0;
+            line-height: 1.6;
+            font-size: 0.96rem;
+        }
+
+        .summary-body {
+            padding: 22px;
+        }
+
+        .summary-title {
+            font-size: 1.02rem;
             font-weight: bold;
             margin-bottom: 12px;
         }
 
-        .summary-box {
-            background-color: #f8f8f8;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            padding: 18px;
-            margin-top: 18px;
-            line-height: 1.6;
-        }
-
         .breakdown {
-            margin-top: 18px;
-            border-top: 1px solid #ddd;
-            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+            padding-top: 14px;
+            margin-top: 14px;
         }
 
         .breakdown-row {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
-            padding: 6px 0;
-        }
-
-        .note-box {
-            background-color: #fff8e8;
-            border: 1px solid #ead39a;
-            border-radius: 10px;
-            padding: 16px;
-            margin-top: 20px;
+            gap: 16px;
+            padding: 7px 0;
             line-height: 1.5;
         }
 
-        .hidden {
-            display: none;
+        .breakdown-row.total {
+            font-weight: bold;
+            border-top: 1px solid #e5e5e5;
+            margin-top: 8px;
+            padding-top: 12px;
+        }
+
+        .confidence-box {
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: 12px;
+            background: #f9f6ec;
+            border: 1px solid #ead39a;
+            line-height: 1.55;
+        }
+
+        .cta-box {
+            margin-top: 20px;
+            border: 1px solid #e2e2e2;
+            background: #fafafa;
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .cta-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .hidden { display: none; }
+
+        @media (max-width: 980px) {
+            .layout-grid { grid-template-columns: 1fr; }
+            .sticky-column { position: static; }
+            .package-grid { grid-template-columns: 1fr; }
+            .addons-grid { grid-template-columns: 1fr; }
+            .trust-row { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 700px) {
-            .hero-overlay h1 {
-                font-size: 2rem;
-            }
-
-            .estimate-box .estimate-number {
-                font-size: 1.8rem;
-            }
-
-            .choice-grid {
-                grid-template-columns: 1fr;
-            }
-
+            .hero-overlay h1 { font-size: 2.05rem; }
+            .summary-top .price { font-size: 1.8rem; }
+            .step-indicator { gap: 8px; }
+            .step-pill { font-size: 0.88rem; }
             .breakdown-row {
                 flex-direction: column;
-                gap: 4px;
+                gap: 2px;
             }
         }
     </style>
@@ -320,10 +485,11 @@
 
     <div class="hero" id="quote-top">
         <div class="hero-overlay">
-            <h1>Get a Rough Quote Instantly</h1>
+            <div class="eyebrow">Best-Practice Floor Protection Estimate</div>
+            <h1>Build a rough quote in under a minute</h1>
             <p>
-                Answer a few short project questions and we will build a rough estimate
-                around your square footage, service needs, and best-practice protection model.
+                This tool starts with our best-practice protection system, then helps you choose how much follow-up support
+                makes sense for the build. It is designed to feel simple, not salesy.
             </p>
             <a class="hero-button" href="#quote-tool">Start Your Quote</a>
         </div>
@@ -331,244 +497,278 @@
 
     <div class="main-content">
         <div class="content-block">
-            <h2>How this works</h2>
+            <h2>Simple by design</h2>
             <p>
-                This tool walks through the project one question at a time so the quote feels simpler and easier to review.
-                Every estimate starts with our best-practice protection system, then adds any follow-up services you want.
+                Builders usually do not need more options. They need a fast number, a clear service path,
+                and an easy way to adjust the scope if the job changes.
             </p>
 
+            <div class="trust-row">
+                <div class="trust-pill">Best-practice system included by default</div>
+                <div class="trust-pill">Clear service recommendations, not overwhelming choices</div>
+                <div class="trust-pill">Easy to adjust before requesting a real quote</div>
+            </div>
+
             <div class="step-indicator">
-                <div class="step-pill active" id="pill1">1. Project</div>
-                <div class="step-pill" id="pill2">2. Patch-up</div>
-                <div class="step-pill" id="pill3">3. Cabinets</div>
-                <div class="step-pill" id="pill4">4. Stairs</div>
-                <div class="step-pill" id="pill5">5. Materials</div>
-                <div class="step-pill" id="pill6">6. Estimate</div>
+                <div class="step-pill active" id="pill1">1. Project Size</div>
+                <div class="step-pill" id="pill2">2. Protection Plan</div>
+                <div class="step-pill" id="pill3">3. Fine-Tune</div>
+                <div class="step-pill" id="pill4">4. Estimate</div>
             </div>
         </div>
 
-        <div class="content-block" id="quote-tool">
-            <div id="step1" class="question-shell">
-                <h2>How big is the project?</h2>
-                <p class="question-copy">
-                    Start with the approximate square footage you want protected.
-                    This is the base for the install, labor, and follow-up service pricing.
-                </p>
+        <div class="layout-grid" id="quote-tool">
+            <div class="content-block">
+                <div id="step1" class="question-shell">
+                    <h2>How much finished flooring needs protection?</h2>
+                    <p class="question-copy">
+                        Enter the approximate square footage that actually needs to be covered.
+                        That is usually less than the full house size unless nearly every finished floor is being protected.
+                    </p>
 
-                <div class="form-row">
-                    <label for="squareFootage">Approximate square footage</label>
-                    <input type="number" id="squareFootage" min="1" placeholder="Example: 4000">
+                    <div class="form-row">
+                        <label for="squareFootage">Approximate square footage to protect</label>
+                        <input type="number" id="squareFootage" min="1" placeholder="Example: 4000">
+                    </div>
+
+                    <div class="quick-size-row">
+                        <button type="button" onclick="setQuickSqft(2500)">2,500</button>
+                        <button type="button" onclick="setQuickSqft(4000)">4,000</button>
+                        <button type="button" onclick="setQuickSqft(6000)">6,000</button>
+                        <button type="button" onclick="setQuickSqft(8000)">8,000</button>
+                    </div>
+
+                    <div class="context-note">
+                        Best-practice pricing uses our Floorotex, cardboard, and multi-tape system.
+                        Smaller jobs under 1,000 sq/ft may carry an added trip charge.
+                    </div>
+
+                    <div class="button-row">
+                        <button class="hero-button" onclick="goToStep(2)">Continue</button>
+                    </div>
                 </div>
 
-                <div class="context-note">
-                    Best-practice pricing uses our Floorotex, cardboard, and multi-tape system.
-                    Smaller jobs under 1,000 sq/ft may carry an added trip charge.
+                <div id="step2" class="question-shell hidden">
+                    <h2>How hands-on do you want protection to be after install?</h2>
+                    <p class="question-copy">
+                        Pick the service path that best fits the build. On the next step, every included service can still be adjusted.
+                    </p>
+
+                    <div class="package-grid">
+                        <div class="package-card" id="package-install-only" onclick="choosePackage('install-only')">
+                            <div class="package-badge">Leanest option</div>
+                            <h3>Initial Install Only</h3>
+                            <p>
+                                Best when the build team mainly needs clean upfront protection and plans to manage the rest in-house.
+                            </p>
+                            <ul class="package-list">
+                                <li>Best-practice install included</li>
+                                <li>No scheduled follow-up services</li>
+                                <li>Lowest starting price</li>
+                            </ul>
+                            <div class="package-price-note">Good for shorter or lower-traffic phases.</div>
+                        </div>
+
+                        <div class="package-card" id="package-builder-standard" onclick="choosePackage('builder-standard')">
+                            <div class="package-badge">Most popular</div>
+                            <h3>Builder Standard</h3>
+                            <p>
+                                A strong middle ground for active custom homes that want cleaner walkthroughs and less rework risk later in the build.
+                            </p>
+                            <ul class="package-list">
+                                <li>Post-cabinet re-cover</li>
+                                <li>Stair return visit</li>
+                                <li>Extra material left on site</li>
+                            </ul>
+                            <div class="package-price-note">Recommended for most active custom builds.</div>
+                        </div>
+
+                        <div class="package-card" id="package-full-care" onclick="choosePackage('full-care')">
+                            <div class="package-badge">Best protection</div>
+                            <h3>Full Jobsite Care</h3>
+                            <p>
+                                Built for builders who want protection maintained throughout the job, not just installed once and left alone.
+                            </p>
+                            <ul class="package-list">
+                                <li>Twice-a-month patch-up service</li>
+                                <li>Post-cabinet re-cover</li>
+                                <li>Stair return visit</li>
+                                <li>Extra material left on site</li>
+                            </ul>
+                            <div class="package-price-note">Best fit when trade traffic and owner walkthroughs stay active.</div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <strong>Helpful rule of thumb:</strong>
+                        if the home is going to stay busy with trades for months, the more complete packages usually create better value
+                        because they help keep protection tighter, cleaner, and more client-ready throughout the build.
+                    </div>
+
+                    <div class="button-row">
+                        <button class="secondary-button" onclick="goToStep(1)">Back</button>
+                        <button class="hero-button" onclick="goToStep(3)">Continue</button>
+                    </div>
                 </div>
 
-                <div class="button-row">
-                    <button class="hero-button" onclick="goToStep(2)">Continue</button>
+                <div id="step3" class="question-shell hidden">
+                    <h2>Fine-tune your service plan</h2>
+                    <p class="question-copy">
+                        These are already pre-selected based on the package you chose. Turn anything on or off to match the job more closely.
+                    </p>
+
+                    <div class="addons-grid">
+                        <div class="addon-card" id="addon-monthly" onclick="toggleAddon('monthly')">
+                            <div class="addon-badge">Ongoing care</div>
+                            <h3>Twice-a-month patch-up service</h3>
+                            <p>
+                                Helps keep high-traffic paths cleaner and more secure as the project moves forward.
+                            </p>
+                            <div class="micro-note">Best value on longer builds with regular trade traffic.</div>
+                        </div>
+
+                        <div class="addon-card" id="addon-recover" onclick="toggleAddon('recover')">
+                            <div class="addon-badge">Finish protection</div>
+                            <h3>Post-cabinet re-cover</h3>
+                            <p>
+                                Brings protection back after cabinet crews remove sections and expose finished areas again.
+                            </p>
+                            <div class="micro-note">A strong upgrade for kitchens, built-ins, and busy cabinet phases.</div>
+                        </div>
+
+                        <div class="addon-card" id="addon-stairs" onclick="toggleAddon('stairs')">
+                            <div class="addon-badge">High-traffic detail</div>
+                            <h3>Return to cover finished stairs</h3>
+                            <p>
+                                Protects one of the most visible and vulnerable finished surfaces once stairs are ready.
+                            </p>
+                            <div class="micro-note">A small add-on that often protects a costly detail.</div>
+                        </div>
+
+                        <div class="addon-card" id="addon-extra" onclick="toggleAddon('extra')">
+                            <div class="addon-badge">On-site flexibility</div>
+                            <h3>Leave extra materials on site</h3>
+                            <p>
+                                Gives the builder extra flexibility for quick touch-ups between visits and subcontractor activity.
+                            </p>
+                            <div class="micro-note">Useful when schedules move fast and site conditions change.</div>
+                        </div>
+                    </div>
+
+                    <div class="months-wrap hidden" id="monthsWrap">
+                        <label for="months">How many months of twice-a-month patch-up service should be included?</label>
+                        <input type="number" id="months" min="1" max="24" value="4">
+                    </div>
+
+                    <div class="button-row">
+                        <button class="secondary-button" onclick="goToStep(2)">Back</button>
+                        <button class="hero-button" onclick="goToStep(4)">See My Estimate</button>
+                    </div>
+                </div>
+
+                <div id="step4" class="question-shell hidden">
+                    <h2 id="result-section">Your rough estimate</h2>
+                    <p class="question-copy">
+                        This estimate is based on the best-practice model and the selections below.
+                        If anything feels off, go back and adjust it in a few clicks.
+                    </p>
+
+                    <div class="tip-box">
+                        <strong>Want a tighter number?</strong>
+                        Use the real quote buttons below and the estimate will already be included in the email draft.
+                    </div>
+
+                    <div class="cta-box">
+                        <h3>Ready for a real quote today?</h3>
+                        <p>
+                            Send this estimate over and we can tighten it up around the exact project details.
+                        </p>
+                        <div class="cta-actions">
+                            <a id="emailQuoteButton"
+                               href="https://mail.google.com/mail/?view=cm&fs=1&to=floorprotectionpros@gmail.com&su=Floor%20Protection%20Quote%20Request"
+                               target="_blank"
+                               class="hero-button">Email This Estimate</a>
+                            <a href="tel:+13855609171" class="secondary-button">Call / Text (385) 560-9171</a>
+                        </div>
+                    </div>
+
+                    <div class="button-row">
+                        <button class="secondary-button" onclick="goToStep(3)">Back</button>
+                        <button class="ghost-button" onclick="goToStep(2)">Change Package</button>
+                        <button class="hero-button" onclick="resetQuote()">Start Over</button>
+                    </div>
                 </div>
             </div>
 
-            <div id="step2" class="question-shell hidden">
-                <h2>Would you like ongoing patch-up service?</h2>
-                <p class="question-copy">
-                    During active construction, floor protection can wear down in traffic paths.
-                    We can come out twice each month to patch worn areas and keep the protection looking clean and secure.
-                </p>
-
-                <div class="choice-grid">
-                    <div class="choice-card" data-group="monthly" onclick="setChoice('monthly', true, event)">
-                        <h3>Yes</h3>
-                        <p>Add twice-a-month patch-up service after the initial install.</p>
-                    </div>
-                    <div class="choice-card" data-group="monthly" onclick="setChoice('monthly', false, event)">
-                        <h3>No</h3>
-                        <p>Just quote the install without ongoing monthly patch-up visits.</p>
-                    </div>
-                </div>
-
-                <div class="form-row hidden" id="monthsRow">
-                    <label for="months">How many months of twice-a-month patch-up work should be included?</label>
-                    <input type="number" id="months" min="1" max="24" value="4">
-                </div>
-
-                <div class="button-row">
-                    <button class="secondary-button" onclick="goToStep(1)">Back</button>
-                    <button class="hero-button" onclick="goToStep(3)">Continue</button>
-                </div>
-            </div>
-
-            <div id="step3" class="question-shell hidden">
-                <h2>Would you like us to return after cabinets are installed?</h2>
-                <p class="question-copy">
-                    When cabinets are installed, subcontractors typically remove some of our floor protection,
-                    which can create added risk in high-traffic finished areas.
-                    We can come back and re-cover those spaces after cabinet install.
-                </p>
-
-                <div class="choice-grid">
-                    <div class="choice-card" data-group="recover" onclick="setChoice('recover', true, event)">
-                        <h3>Yes</h3>
-                        <p>Add a post-cabinet re-cover visit to restore protection in those areas.</p>
-                    </div>
-                    <div class="choice-card" data-group="recover" onclick="setChoice('recover', false, event)">
-                        <h3>No</h3>
-                        <p>Do not add a return visit after cabinet installation.</p>
-                    </div>
-                </div>
-
-                <div class="button-row">
-                    <button class="secondary-button" onclick="goToStep(2)">Back</button>
-                    <button class="hero-button" onclick="goToStep(4)">Continue</button>
-                </div>
-            </div>
-
-            <div id="step4" class="question-shell hidden">
-                <h2>Would you like us to come back to cover finished stairs?</h2>
-                <p class="question-copy">
-                    It is typical for stairs to be finished after the flooring is installed.
-                    We can come back when that stair finish goes on and protect those surfaces as part of the project.
-                </p>
-
-                <div class="choice-grid">
-                    <div class="choice-card" data-group="stairs" onclick="setChoice('stairs', true, event)">
-                        <h3>Yes</h3>
-                        <p>Add a stairs visit after the stair finish is complete.</p>
-                    </div>
-                    <div class="choice-card" data-group="stairs" onclick="setChoice('stairs', false, event)">
-                        <h3>No</h3>
-                        <p>Do not add a separate stair protection visit.</p>
-                    </div>
-                </div>
-
-                <div class="button-row">
-                    <button class="secondary-button" onclick="goToStep(3)">Back</button>
-                    <button class="hero-button" onclick="goToStep(5)">Continue</button>
-                </div>
-            </div>
-
-            <div id="step5" class="question-shell hidden">
-                <h2>Would you like extra protection materials left on site?</h2>
-                <p class="question-copy">
-                    Some builders like having extra material on hand for quick touch-ups between visits.
-                    We can include that as part of the project if you want it available.
-                </p>
-
-                <div class="choice-grid">
-                    <div class="choice-card" data-group="extra" onclick="setChoice('extra', true, event)">
-                        <h3>Yes</h3>
-                        <p>Include extra materials left on site after the initial install.</p>
-                    </div>
-                    <div class="choice-card" data-group="extra" onclick="setChoice('extra', false, event)">
-                        <h3>No</h3>
-                        <p>Do not add extra materials beyond the normal install scope.</p>
-                    </div>
-                </div>
-
-                <div class="button-row">
-                    <button class="secondary-button" onclick="goToStep(4)">Back</button>
-                    <button class="hero-button" onclick="goToStep(6)">See My Estimate</button>
-                </div>
-            </div>
-
-            <div id="step6" class="hidden">
-                <h2 id="result-section">Your Rough Estimate</h2>
-                <p>
-                    Review the estimate below. Use the back buttons if anything needs to be changed.
-                </p>
-
-                <div class="estimate-box">
-                    <div class="estimate-label">Estimated price</div>
-                    <div class="estimate-number" id="estimateNumber">$0.00</div>
-                    <div id="estimateSentence"></div>
-                </div>
-
-                <div class="summary-box">
-                    <strong>Your selections</strong>
-                    <div class="breakdown">
-                        <div class="breakdown-row">
-                            <span>Service package</span>
-                            <span id="summaryService">-</span>
-                        </div>
-                        <div class="breakdown-row">
-                            <span>Square footage</span>
-                            <span id="summarySqft">-</span>
-                        </div>
-                        <div class="breakdown-row hidden" id="summaryMonthsRow">
-                            <span>Months of patch-up</span>
-                            <span id="summaryMonths">-</span>
+            <div class="sticky-column">
+                <div class="summary-panel">
+                    <div class="summary-top">
+                        <div class="small">Live rough estimate</div>
+                        <div class="price" id="estimateNumber">$0</div>
+                        <div class="sentence" id="estimateSentence">
+                            Start with square footage to begin building your estimate.
                         </div>
                     </div>
-                </div>
 
-                <div class="summary-box">
-                    <strong>Estimate breakdown</strong>
-                    <div class="breakdown">
-                        <div class="breakdown-row">
-                            <span>Protection price</span>
-                            <span id="breakdownProtectionPrice">$0.00</span>
+                    <div class="summary-body">
+                        <div class="summary-title">Included in your plan</div>
+                        <div id="includedServicesText">Best-practice initial install.</div>
+
+                        <div class="breakdown">
+                            <div class="breakdown-row">
+                                <span>Square footage</span>
+                                <span id="summarySqft">-</span>
+                            </div>
+                            <div class="breakdown-row hidden" id="summaryMonthsRow">
+                                <span>Patch-up months</span>
+                                <span id="summaryMonths">-</span>
+                            </div>
                         </div>
-                        <div class="breakdown-row">
-                            <span>Labor</span>
-                            <span id="breakdownLabor">$0.00</span>
+
+                        <div class="breakdown">
+                            <div class="breakdown-row">
+                                <span>Protection price</span>
+                                <span id="breakdownProtectionPrice">$0</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Labor</span>
+                                <span id="breakdownLabor">$0</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Travel</span>
+                                <span id="breakdownTravel">$0</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Initial install subtotal</span>
+                                <span id="breakdownInitial">$0</span>
+                            </div>
+                            <div class="breakdown-row hidden" id="breakdownMonthlyRow">
+                                <span id="breakdownMonthlyLabel">Patch-up service</span>
+                                <span id="breakdownMonthlyValue">$0</span>
+                            </div>
+                            <div class="breakdown-row hidden" id="breakdownRecoverRow">
+                                <span>Post-cabinet re-cover</span>
+                                <span id="breakdownRecoverValue">$0</span>
+                            </div>
+                            <div class="breakdown-row hidden" id="breakdownStairsRow">
+                                <span>Return to cover stairs</span>
+                                <span id="breakdownStairsValue">$0</span>
+                            </div>
+                            <div class="breakdown-row hidden" id="breakdownExtraRow">
+                                <span>Extra materials on site</span>
+                                <span id="breakdownExtraValue">$0</span>
+                            </div>
+                            <div class="breakdown-row total">
+                                <span>Estimated total</span>
+                                <span id="breakdownTotal">$0</span>
+                            </div>
                         </div>
-                        <div class="breakdown-row">
-                            <span>Travel</span>
-                            <span id="breakdownTravel">$0.00</span>
-                        </div>
-                        <div class="breakdown-row">
-                            <span>Initial install subtotal</span>
-                            <span id="breakdownInitial">$0.00</span>
-                        </div>
-                        <div class="breakdown-row hidden" id="breakdownMonthlyRow">
-                            <span id="breakdownMonthlyLabel">Monthly patch-up</span>
-                            <span id="breakdownMonthlyValue">$0.00</span>
-                        </div>
-                        <div class="breakdown-row hidden" id="breakdownRecoverRow">
-                            <span>Post cabinet re-cover</span>
-                            <span id="breakdownRecoverValue">$0.00</span>
-                        </div>
-                        <div class="breakdown-row hidden" id="breakdownStairsRow">
-                            <span>Cover stairs post initial install</span>
-                            <span id="breakdownStairsValue">$0.00</span>
-                        </div>
-                        <div class="breakdown-row hidden" id="breakdownExtraRow">
-                            <span>Extra materials left on site</span>
-                            <span id="breakdownExtraValue">$0.00</span>
+
+                        <div class="confidence-box">
+                            Final pricing can still change after a walkthrough and exact scope review,
+                            but this should give a useful planning number right away.
                         </div>
                     </div>
-                </div>
-<div class="content-block" style="margin-top:20px; text-align:center;">
-    <h3 style="margin-bottom:10px;">Want a finalized quote?</h3>
-    <p style="margin-bottom:18px; color:#444;">
-        This is a rough estimate. For a confirmed quote based on your exact project details,
-        reach out today and we’ll get you taken care of quickly.
-    </p>
-
-   <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=floorprotectionpros@gmail.com&su=Floor%20Protection%20Quote%20Request" 
-   target="_blank" 
-   class="hero-button">
-    Email Us
-</a>
-    </a>
-
-    <a href="tel:+13855609171" class="secondary-button">
-        Call / Text (385) 560-9171
-    </a>
-</div>
-</div>
-                <div class="note-box">
-                    This is only a rough estimate. Final pricing could change after a walkthrough,
-                    after confirming which floors need protection, or after changes to service needs.
-                    Labor is currently scaled by project size from the average-job model inputs.
-                </div>
-
-                <div class="button-row">
-                    <button class="secondary-button" onclick="goToStep(5)">Back</button>
-                    <button class="secondary-button" onclick="goToStep(2)">Change Answers</button>
-                    <button class="hero-button" onclick="resetQuote()">Start Over</button>
                 </div>
             </div>
         </div>
@@ -578,14 +778,15 @@
         const BEST_PRACTICE_PRICE_PER_SQFT = 0.36;
         const BEST_PRACTICE_MATERIAL_COST_PER_SQFT = 0.31;
         const AVG_JOB_SIZE = 5000;
-        const LABOR_RATE = 80;
-        const HOURS_PER_AVG_JOB = 10;
+        const LABOR_RATE = 40;
+        const HOURS_PER_AVG_JOB = 20;
         const TRAVEL_COST_PER_HOUR = 50;
         const AVG_TRAVEL_TIME_HOURS = 1.5;
         const SMALL_JOB_TRIP_CHARGE = 200;
 
         const quoteState = {
             sqft: 0,
+            package: "",
             wantsMonthly: false,
             months: 4,
             wantsRecover: false,
@@ -596,7 +797,8 @@
         function formatCurrency(value) {
             return value.toLocaleString("en-US", {
                 style: "currency",
-                currency: "USD"
+                currency: "USD",
+                maximumFractionDigits: 0
             });
         }
 
@@ -608,15 +810,21 @@
             return Math.round(value * 2) / 2;
         }
 
+        function setQuickSqft(value) {
+            document.getElementById("squareFootage").value = value;
+            quoteState.sqft = value;
+            renderQuotePreview();
+        }
+
         function updateStepPills(step) {
-            for (let i = 1; i <= 6; i++) {
+            for (let i = 1; i <= 4; i++) {
                 document.getElementById("pill" + i).classList.remove("active");
             }
             document.getElementById("pill" + step).classList.add("active");
         }
 
         function hideAllSteps() {
-            for (let i = 1; i <= 6; i++) {
+            for (let i = 1; i <= 4; i++) {
                 document.getElementById("step" + i).classList.add("hidden");
             }
         }
@@ -631,29 +839,15 @@
                 quoteState.sqft = sqft;
             }
 
-            if (step >= 3 && !hasChoice("monthly")) {
-                alert("Please answer the patch-up question first.");
+            if (step >= 3 && !quoteState.package) {
+                alert("Please choose a protection plan first.");
                 return;
             }
 
-            if (step >= 4 && !hasChoice("recover")) {
-                alert("Please answer the cabinet question first.");
-                return;
-            }
-
-            if (step >= 5 && !hasChoice("stairs")) {
-                alert("Please answer the stairs question first.");
-                return;
-            }
-
-            if (step >= 6 && !hasChoice("extra")) {
-                alert("Please answer the extra materials question first.");
-                return;
-            }
-
-            if (step === 6) {
-                quoteState.months = Number(document.getElementById("months").value) || 1;
-                calculateQuote();
+            if (step === 4) {
+                quoteState.months = Math.max(1, Number(document.getElementById("months").value) || 1);
+                renderQuotePreview();
+                updateEmailLink();
             }
 
             hideAllSteps();
@@ -662,147 +856,206 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
 
-        function hasChoice(group) {
-            return document.querySelector(`.choice-card[data-group="${group}"].selected`) !== null;
-        }
+        function choosePackage(packageId) {
+            quoteState.package = packageId;
 
-        function setChoice(group, value, event) {
-            document.querySelectorAll(`.choice-card[data-group="${group}"]`).forEach(card => {
+            document.querySelectorAll(".package-card").forEach(card => {
                 card.classList.remove("selected");
             });
+            document.getElementById("package-" + packageId).classList.add("selected");
 
-            event.currentTarget.classList.add("selected");
-
-            if (group === "monthly") {
-                quoteState.wantsMonthly = value;
-                const monthsRow = document.getElementById("monthsRow");
-                if (value) {
-                    monthsRow.classList.remove("hidden");
-                } else {
-                    monthsRow.classList.add("hidden");
-                }
-            } else if (group === "recover") {
-                quoteState.wantsRecover = value;
-            } else if (group === "stairs") {
-                quoteState.wantsStairs = value;
-            } else if (group === "extra") {
-                quoteState.wantsExtra = value;
+            if (packageId === "install-only") {
+                quoteState.wantsMonthly = false;
+                quoteState.wantsRecover = false;
+                quoteState.wantsStairs = false;
+                quoteState.wantsExtra = false;
             }
+
+            if (packageId === "builder-standard") {
+                quoteState.wantsMonthly = false;
+                quoteState.wantsRecover = true;
+                quoteState.wantsStairs = true;
+                quoteState.wantsExtra = true;
+            }
+
+            if (packageId === "full-care") {
+                quoteState.wantsMonthly = true;
+                quoteState.wantsRecover = true;
+                quoteState.wantsStairs = true;
+                quoteState.wantsExtra = true;
+                if (!quoteState.months || quoteState.months < 1) {
+                    quoteState.months = 4;
+                }
+            }
+
+            syncAddonCards();
+            renderQuotePreview();
+        }
+
+        function toggleAddon(addon) {
+            if (addon === "monthly") quoteState.wantsMonthly = !quoteState.wantsMonthly;
+            if (addon === "recover") quoteState.wantsRecover = !quoteState.wantsRecover;
+            if (addon === "stairs") quoteState.wantsStairs = !quoteState.wantsStairs;
+            if (addon === "extra") quoteState.wantsExtra = !quoteState.wantsExtra;
+
+            syncAddonCards();
+            renderQuotePreview();
+        }
+
+        function syncAddonCards() {
+            document.getElementById("addon-monthly").classList.toggle("selected", quoteState.wantsMonthly);
+            document.getElementById("addon-recover").classList.toggle("selected", quoteState.wantsRecover);
+            document.getElementById("addon-stairs").classList.toggle("selected", quoteState.wantsStairs);
+            document.getElementById("addon-extra").classList.toggle("selected", quoteState.wantsExtra);
+            document.getElementById("monthsWrap").classList.toggle("hidden", !quoteState.wantsMonthly);
         }
 
         function getServiceSummary() {
             const parts = ["Initial Install"];
 
-            if (quoteState.wantsMonthly) {
-                parts.push("Monthly Patch-up");
-            }
-
-            if (quoteState.wantsRecover) {
-                parts.push("Post Cabinet Re-cover");
-            }
-
-            if (quoteState.wantsStairs) {
-                parts.push("Stairs Coverage");
-            }
-
-            if (quoteState.wantsExtra) {
-                parts.push("Extra Materials");
-            }
+            if (quoteState.wantsMonthly) parts.push("Twice-a-Month Patch-up");
+            if (quoteState.wantsRecover) parts.push("Post-Cabinet Re-cover");
+            if (quoteState.wantsStairs) parts.push("Stair Return Visit");
+            if (quoteState.wantsExtra) parts.push("Extra Materials On Site");
 
             return parts.join(" + ");
         }
 
-        function calculateQuote() {
-            const protectionPrice = BEST_PRACTICE_PRICE_PER_SQFT * quoteState.sqft;
-            const protectionMaterialCost = BEST_PRACTICE_MATERIAL_COST_PER_SQFT * quoteState.sqft;
-            const laborHours = roundToHalf((quoteState.sqft / AVG_JOB_SIZE) * HOURS_PER_AVG_JOB);
+        function calculateNumbers() {
+            const sqft = quoteState.sqft || 0;
+            const protectionPrice = BEST_PRACTICE_PRICE_PER_SQFT * sqft;
+            const protectionMaterialCost = BEST_PRACTICE_MATERIAL_COST_PER_SQFT * sqft;
+            const laborHours = roundToHalf((sqft / AVG_JOB_SIZE) * HOURS_PER_AVG_JOB);
             const laborCost = LABOR_RATE * laborHours;
             const baseTravel = TRAVEL_COST_PER_HOUR * AVG_TRAVEL_TIME_HOURS;
-            const travelCost = quoteState.sqft > 1000 ? baseTravel : baseTravel + SMALL_JOB_TRIP_CHARGE;
+            const travelCost = sqft > 1000 ? baseTravel : baseTravel + SMALL_JOB_TRIP_CHARGE;
 
             const initialInstall = protectionPrice + laborCost + travelCost;
-            const monthlyPatchPrice = 0.10 * initialInstall;
+            const monthlyPatchPrice = 0.075 * initialInstall * quoteState.months;
             const postCabinetRecoverPrice = 0.25 * initialInstall;
             const stairsPostInstallPrice = 0.08 * initialInstall;
             const extraMaterialsPrice = protectionPrice - protectionMaterialCost;
 
             let total = initialInstall;
 
-            if (quoteState.wantsMonthly) {
-                total += monthlyPatchPrice * quoteState.months;
-            }
+            if (quoteState.wantsMonthly) total += monthlyPatchPrice;
+            if (quoteState.wantsRecover) total += postCabinetRecoverPrice;
+            if (quoteState.wantsStairs) total += stairsPostInstallPrice;
+            if (quoteState.wantsExtra) total += extraMaterialsPrice;
 
-            if (quoteState.wantsRecover) {
-                total += postCabinetRecoverPrice;
-            }
+            return {
+                protectionPrice,
+                laborCost,
+                travelCost,
+                initialInstall,
+                monthlyPatchPrice,
+                postCabinetRecoverPrice,
+                stairsPostInstallPrice,
+                extraMaterialsPrice,
+                total
+            };
+        }
 
-            if (quoteState.wantsStairs) {
-                total += stairsPostInstallPrice;
-            }
-
-            if (quoteState.wantsExtra) {
-                total += extraMaterialsPrice;
-            }
-
-            document.getElementById("estimateNumber").textContent = formatCurrency(total);
-
-            let sentence = `For ${getServiceSummary()} on ${formatNumber(quoteState.sqft)} sq/ft, your rough estimate is ${formatCurrency(total)}.`;
-
-            if (quoteState.wantsMonthly) {
-                sentence = `For ${getServiceSummary()} with ${quoteState.months} month(s) of twice-a-month patch-up service on ${formatNumber(quoteState.sqft)} sq/ft, your rough estimate is ${formatCurrency(total)}.`;
-            }
-
-            document.getElementById("estimateSentence").textContent = sentence;
-            document.getElementById("summaryService").textContent = getServiceSummary();
-            document.getElementById("summarySqft").textContent = formatNumber(quoteState.sqft) + " sq/ft";
-
+        function renderQuotePreview() {
+            const sqft = quoteState.sqft || 0;
             const summaryMonthsRow = document.getElementById("summaryMonthsRow");
-            if (quoteState.wantsMonthly) {
-                summaryMonthsRow.classList.remove("hidden");
-                document.getElementById("summaryMonths").textContent = quoteState.months;
-            } else {
-                summaryMonthsRow.classList.add("hidden");
-            }
-
-            document.getElementById("breakdownProtectionPrice").textContent = formatCurrency(protectionPrice);
-            document.getElementById("breakdownLabor").textContent = formatCurrency(laborCost);
-            document.getElementById("breakdownTravel").textContent = formatCurrency(travelCost);
-            document.getElementById("breakdownInitial").textContent = formatCurrency(initialInstall);
-
             const monthlyRow = document.getElementById("breakdownMonthlyRow");
             const recoverRow = document.getElementById("breakdownRecoverRow");
             const stairsRow = document.getElementById("breakdownStairsRow");
             const extraRow = document.getElementById("breakdownExtraRow");
 
-            monthlyRow.classList.add("hidden");
-            recoverRow.classList.add("hidden");
-            stairsRow.classList.add("hidden");
-            extraRow.classList.add("hidden");
+            if (!sqft) {
+                document.getElementById("estimateNumber").textContent = "$0";
+                document.getElementById("estimateSentence").textContent = "Start with square footage to begin building your estimate.";
+                document.getElementById("includedServicesText").textContent = "Best-practice initial install.";
+                document.getElementById("summarySqft").textContent = "-";
+                document.getElementById("breakdownProtectionPrice").textContent = "$0";
+                document.getElementById("breakdownLabor").textContent = "$0";
+                document.getElementById("breakdownTravel").textContent = "$0";
+                document.getElementById("breakdownInitial").textContent = "$0";
+                document.getElementById("breakdownTotal").textContent = "$0";
+                summaryMonthsRow.classList.add("hidden");
+                monthlyRow.classList.add("hidden");
+                recoverRow.classList.add("hidden");
+                stairsRow.classList.add("hidden");
+                extraRow.classList.add("hidden");
+                return;
+            }
+
+            const numbers = calculateNumbers();
+            const serviceSummary = getServiceSummary();
+
+            document.getElementById("estimateNumber").textContent = formatCurrency(numbers.total);
+            document.getElementById("breakdownTotal").textContent = formatCurrency(numbers.total);
+            document.getElementById("summarySqft").textContent = formatNumber(sqft) + " sq/ft";
+            document.getElementById("includedServicesText").textContent = serviceSummary + ".";
+            document.getElementById("breakdownProtectionPrice").textContent = formatCurrency(numbers.protectionPrice);
+            document.getElementById("breakdownLabor").textContent = formatCurrency(numbers.laborCost);
+            document.getElementById("breakdownTravel").textContent = formatCurrency(numbers.travelCost);
+            document.getElementById("breakdownInitial").textContent = formatCurrency(numbers.initialInstall);
+
+            let sentence = `For our best-practice protection system on ${formatNumber(sqft)} sq/ft, your current rough estimate is ${formatCurrency(numbers.total)}.`;
 
             if (quoteState.wantsMonthly) {
+                sentence = `For our best-practice system with ${quoteState.months} month(s) of twice-a-month patch-up service on ${formatNumber(sqft)} sq/ft, your current rough estimate is ${formatCurrency(numbers.total)}.`;
+            }
+
+            document.getElementById("estimateSentence").textContent = sentence;
+
+            if (quoteState.wantsMonthly) {
+                summaryMonthsRow.classList.remove("hidden");
                 monthlyRow.classList.remove("hidden");
-                document.getElementById("breakdownMonthlyLabel").textContent = `Monthly patch-up (twice a month) x ${quoteState.months}`;
-                document.getElementById("breakdownMonthlyValue").textContent = formatCurrency(monthlyPatchPrice * quoteState.months);
+                document.getElementById("summaryMonths").textContent = quoteState.months;
+                document.getElementById("breakdownMonthlyLabel").textContent = `Patch-up service x ${quoteState.months} month(s)`;
+                document.getElementById("breakdownMonthlyValue").textContent = formatCurrency(numbers.monthlyPatchPrice);
+            } else {
+                summaryMonthsRow.classList.add("hidden");
+                monthlyRow.classList.add("hidden");
             }
 
             if (quoteState.wantsRecover) {
                 recoverRow.classList.remove("hidden");
-                document.getElementById("breakdownRecoverValue").textContent = formatCurrency(postCabinetRecoverPrice);
+                document.getElementById("breakdownRecoverValue").textContent = formatCurrency(numbers.postCabinetRecoverPrice);
+            } else {
+                recoverRow.classList.add("hidden");
             }
 
             if (quoteState.wantsStairs) {
                 stairsRow.classList.remove("hidden");
-                document.getElementById("breakdownStairsValue").textContent = formatCurrency(stairsPostInstallPrice);
+                document.getElementById("breakdownStairsValue").textContent = formatCurrency(numbers.stairsPostInstallPrice);
+            } else {
+                stairsRow.classList.add("hidden");
             }
 
             if (quoteState.wantsExtra) {
                 extraRow.classList.remove("hidden");
-                document.getElementById("breakdownExtraValue").textContent = formatCurrency(extraMaterialsPrice);
+                document.getElementById("breakdownExtraValue").textContent = formatCurrency(numbers.extraMaterialsPrice);
+            } else {
+                extraRow.classList.add("hidden");
             }
+        }
+
+        function updateEmailLink() {
+            const numbers = calculateNumbers();
+            const summary = getServiceSummary();
+            const subject = encodeURIComponent("Floor Protection Quote Request");
+            const body = encodeURIComponent(
+                "Hi Floor Protection Pros,\n\n" +
+                "I would like a confirmed quote for this project.\n\n" +
+                "Rough estimate: " + formatCurrency(numbers.total) + "\n" +
+                "Square footage: " + formatNumber(quoteState.sqft) + " sq/ft\n" +
+                "Service plan: " + summary + "\n" +
+                (quoteState.wantsMonthly ? "Months of patch-up: " + quoteState.months + "\n" : "") +
+                "\nPlease follow up with me about a finalized quote.\n"
+            );
+
+            document.getElementById("emailQuoteButton").href =
+                "https://mail.google.com/mail/?view=cm&fs=1&to=floorprotectionpros@gmail.com&su=" + subject + "&body=" + body;
         }
 
         function resetQuote() {
             quoteState.sqft = 0;
+            quoteState.package = "";
             quoteState.wantsMonthly = false;
             quoteState.months = 4;
             quoteState.wantsRecover = false;
@@ -811,15 +1064,28 @@
 
             document.getElementById("squareFootage").value = "";
             document.getElementById("months").value = 4;
-            document.getElementById("monthsRow").classList.add("hidden");
-            document.getElementById("summaryMonthsRow").classList.add("hidden");
 
-            document.querySelectorAll(".choice-card").forEach(card => {
+            document.querySelectorAll(".package-card, .addon-card").forEach(card => {
                 card.classList.remove("selected");
             });
 
+            syncAddonCards();
+            renderQuotePreview();
             goToStep(1);
         }
+
+        document.getElementById("squareFootage").addEventListener("input", function () {
+            quoteState.sqft = Number(this.value) || 0;
+            renderQuotePreview();
+        });
+
+        document.getElementById("months").addEventListener("input", function () {
+            quoteState.months = Math.max(1, Number(this.value) || 1);
+            renderQuotePreview();
+        });
+
+        syncAddonCards();
+        renderQuotePreview();
     </script>
 </body>
 </html>
