@@ -176,6 +176,13 @@ ul {
   justify-content: center;
 }
 
+.section-sub {
+  max-width: 660px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
 h1,
 h2,
 h3 {
@@ -759,6 +766,99 @@ h3 {
     #171613;
 }
 
+.support-section {
+  background:
+    radial-gradient(circle at top right, rgba(197, 160, 90, 0.08), transparent 34%),
+    var(--bg);
+}
+
+.support-section .section-sub {
+  margin-inline: auto;
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.support-card {
+  padding: 32px 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+.support-card.preferred {
+  border-color: rgba(197, 160, 90, 0.48);
+  background:
+    linear-gradient(180deg, rgba(197, 160, 90, 0.12), rgba(255, 255, 255, 0.015)),
+    var(--panel);
+}
+
+.support-label {
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.support-card h3 {
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.support-card p:last-child {
+  color: var(--muted);
+}
+
+.estimate-section {
+  background: linear-gradient(180deg, #f4efe5, var(--cream));
+  color: var(--ink);
+}
+
+.estimate-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+}
+
+.estimate-section .eyebrow {
+  color: var(--gold-dark);
+}
+
+.estimate-section h2 {
+  max-width: 740px;
+  color: var(--ink);
+}
+
+.estimate-section p:not(.eyebrow) {
+  max-width: 620px;
+  margin-top: 18px;
+  color: var(--ink-muted);
+}
+
+.estimate-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 240px;
+}
+
+.estimate-section .btn-secondary {
+  border-color: rgba(27, 24, 20, 0.24);
+  color: var(--ink);
+}
+
+.estimate-section .btn-secondary:hover {
+  border-color: var(--gold-dark);
+  color: var(--gold-dark);
+}
+
 .quote-band {
   padding-block: 96px;
   background:
@@ -1018,6 +1118,8 @@ h3 {
   .value-grid,
   .comparison-grid,
   .contact-layout,
+  .support-grid,
+  .estimate-inner,
   .footer-inner {
     grid-template-columns: 1fr;
   }
@@ -1025,6 +1127,10 @@ h3 {
   .quote-band-inner {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .estimate-actions {
+    width: 100%;
   }
 
   .contact-layout {

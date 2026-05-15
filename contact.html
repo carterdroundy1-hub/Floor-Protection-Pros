@@ -265,7 +265,7 @@
                 <a href="index.html#system">Our System</a>
                 <a href="index.html#work">Our Work</a>
                 <a href="index.html#builders">For Builders</a>
-                <a href="QuoteTool.html">Rough Calculator</a>
+                <a href="QuoteTool.html">Project Estimate</a>
                 <a href="contact.html" class="nav-cta" aria-current="page">Get a Quote</a>
             </nav>
 
@@ -279,7 +279,7 @@
             <a href="index.html#system">Our System</a>
             <a href="index.html#work">Our Work</a>
             <a href="index.html#builders">For Builders</a>
-            <a href="QuoteTool.html">Rough Calculator</a>
+            <a href="QuoteTool.html">Project Estimate</a>
             <a href="contact.html">Get a Quote</a>
         </div>
     </header>
@@ -349,7 +349,7 @@
 
                 <!-- RIGHT: Form -->
                 <div class="cl-right">
-                    <form id="contact-form" class="cl-form-wrap" novalidate>
+                    <form id="contact-form" class="cl-form-wrap" action="https://formspree.io/f/xojronko" method="POST" novalidate>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="f-name">Name</label>
@@ -394,8 +394,8 @@
                                 <polyline points="9 12 11.5 14.5 15.5 9.5"/>
                             </svg>
                         </div>
-                        <h2>Request Sent.</h2>
-                        <p>Your email client should open with your details pre-filled. We'll respond within one business day.</p>
+                        <h2 id="form-success-title">Quote Request Received</h2>
+                        <p id="form-success-body">Thanks — we received your project details and will follow up shortly.</p>
                         <a href="index.html" class="btn btn-outline">Back to Home</a>
                     </div>
                 </div>
@@ -423,7 +423,7 @@
                 <a href="index.html#system">Our System</a>
                 <a href="index.html#work">Our Work</a>
                 <a href="index.html#builders">For Builders</a>
-                <a href="QuoteTool.html">Rough Calculator</a>
+                <a href="QuoteTool.html">Project Estimate</a>
                 <a href="contact.html">Get a Quote</a>
             </nav>
 
@@ -449,6 +449,9 @@
             var form    = document.getElementById('contact-form');
             var success = document.getElementById('form-success');
             var sel     = document.getElementById('f-service');
+            var submit  = form.querySelector('.form-submit');
+            var successTitle = document.getElementById('form-success-title');
+            var successBody  = document.getElementById('form-success-body');
 
             // Style select placeholder vs chosen value
             sel.addEventListener('change', function () {
@@ -483,24 +486,35 @@
                 }
                 if (!valid) return;
 
-                // Build mailto
-                var subject = encodeURIComponent('Quote Request — Floor Protection Pros');
-                var body = encodeURIComponent(
-                    'Name: '    + name    + '\n' +
-                    'Phone: '   + (phone   || 'Not provided') + '\n' +
-                    'Email: '   + email   + '\n' +
-                    'Service: ' + (service || 'Not selected') + '\n\n' +
-                    'Project Details:\n' + (details || 'None provided')
-                );
+                submit.disabled = true;
+                submit.textContent = 'Sending...';
+                success.hidden = true;
 
-                window.location.href =
-                    'mailto:floorprotectionpros@gmail.com?subject=' + subject + '&body=' + body;
+                var data = new FormData(form);
+                data.append('request_type', 'Website Quote Request');
+                data.append('project_details', details || 'None provided');
 
-                // Show success message after a short delay
-                setTimeout(function () {
+                fetch('https://formspree.io/f/xojronko', {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                }).then(function (response) {
+                    if (!response.ok) throw new Error('Formspree submission failed');
+
+                    successTitle.textContent = 'Quote Request Received';
+                    successBody.textContent = 'Thanks — we received your project details and will follow up shortly.';
                     form.hidden = true;
                     success.hidden = false;
-                }, 800);
+                }).catch(function () {
+                    successTitle.textContent = 'Something went wrong';
+                    successBody.textContent = 'Please email us directly at floorprotectionpros@gmail.com.';
+                    form.hidden = false;
+                    success.hidden = false;
+                    submit.disabled = false;
+                    submit.textContent = 'Send Request';
+                });
+
+                return;
             });
         }());
     </script>
