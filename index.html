@@ -3,202 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floor Protection Pros | Premium Floor Protection for Luxury Custom Homes</title>
-    <meta name="description" content="Premium floor protection for custom homes, finished floors, and luxury construction projects across Utah. Professional service for builders and contractors.">
+    <title>Floor Protection Pros | Premium Floor Protection for Utah Custom Homes</title>
+    <meta name="description" content="Premium temporary floor protection for custom homes, finished surfaces, and builder-ready job sites across Utah County and surrounding areas.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.styles.css">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
 </head>
-
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="brand-signature">
-                <div class="nav-logo">Floor Protection Pros</div>
-                <span class="nav-caption">Luxury home builders. Finished floors. Flawless protection.</span>
-            </div>
-            <div class="nav-actions">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#system">Our System</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#quote">For Builders</a></li>
-                </ul>
-                <a href="#quote" class="btn btn-nav">Get a Quote</a>
-            </div>
+    <div class="site-loader" id="siteLoader" aria-hidden="true">
+        <div class="site-loader-inner">
+            <img src="floor-protection-pros-shield.png" alt="">
+            <p>Floor Protection Pros</p>
+            <div class="loader-bar"><span></span></div>
         </div>
-    </nav>
+    </div>
 
-    <section id="hero" class="hero">
-        <div class="hero-overlay">
-            <span class="eyebrow">Premium floor protection for luxury homes across Utah</span>
-            <h1>Protection That Matches the Standard of the Build.</h1>
-            <p class="hero-subtitle">We preserve finished floors, maintain presentation, and protect luxury homes through every phase of construction.</p>
-            <div class="hero-buttons">
-                <a href="#quote" class="btn btn-primary">Get a Quote</a>
-                <a href="#system" class="btn btn-secondary">View Our System</a>
-            </div>
-        </div>
-    </section>
+    <header class="nav" id="top">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Floor Protection Pros home">
+                <span class="logo-mark">
+                    <img src="floor-protection-pros-shield.png" alt="" aria-hidden="true">
+                </span>
+                <span class="logo-text">
+                    <span>Floor Protection</span>
+                    <span>Pros</span>
+                </span>
+            </a>
 
-    <section id="about" class="section section-features">
-        <div class="container">
-            <span class="eyebrow">Why Builders Choose Us</span>
-            <h2>We Protect What Matters Most.</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🛡️</div>
-                    <h3>Prevent Damage</h3>
-                    <p>Keep high-end finishes intact from rough trade work to final staged walkthroughs.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">✨</div>
-                    <h3>Maintain Presentation</h3>
-                    <p>Ensure the jobsite looks polished, professional, and client-ready at every stage.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
-                    <h3>Reduce Rework</h3>
-                    <p>Fewer repairs, fewer delays, and fewer last-minute surprises before closing.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#system">Our System</a>
+                <a href="#work">Our Work</a>
+                <a href="#builders">For Builders</a>
+                <a href="QuoteTool.html">Rough Calculator</a>
+                <a href="contact.html" class="nav-cta" target="_blank" rel="noopener">Get a Quote</a>
+            </nav>
 
-    <section class="section section-statement">
-        <div class="container">
-            <div class="statement-panel">
-                <h2>Built for luxury homes. Installed with precision.</h2>
-                <p>Our multi-layer protection system is engineered specifically for custom homes and high-end finishes, so builders can move the project forward without compromising final flooring quality.</p>
-            </div>
+            <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-    </section>
 
-    <section id="system" class="section section-dark">
-        <div class="container">
-            <span class="eyebrow">Our Protection System</span>
-            <h2>A proven system. Quality materials. Flawless results.</h2>
-            <div class="system-grid">
-                <div class="system-card">
-                    <div class="system-icon">1</div>
-                    <h3>Premium Materials</h3>
-                    <p>We use Floorotex, construction board, and high-quality tape for maximum protection.</p>
-                </div>
-                <div class="system-card">
-                    <div class="system-icon">2</div>
-                    <h3>Detailed Installation</h3>
-                    <p>Every seam is taped. Every edge is sealed. No shortcuts.</p>
-                </div>
-                <div class="system-card">
-                    <div class="system-icon">3</div>
-                    <h3>Daily Maintenance</h3>
-                    <p>We inspect and maintain protection throughout the entire build to keep it performing.</p>
-                </div>
-                <div class="system-card">
-                    <div class="system-icon">4</div>
-                    <h3>Spotless Results</h3>
-                    <p>We remove protection cleanly so your floors are perfectly ready for close-out.</p>
-                </div>
-            </div>
+        <div class="nav-mobile" aria-hidden="true">
+            <a href="#about">About</a>
+            <a href="#system">Our System</a>
+            <a href="#work">Our Work</a>
+            <a href="#builders">For Builders</a>
+            <a href="QuoteTool.html">Rough Calculator</a>
+            <a href="contact.html" target="_blank" rel="noopener">Get a Quote</a>
         </div>
-    </section>
+    </header>
 
-    <section class="section section-value">
-        <div class="container">
-            <h2>Protection Costs Less Than Replacement.</h2>
-            <div class="value-comparison">
-                <div class="value-card value-without">
-                    <h3>Without Protection</h3>
-                    <ul>
-                        <li>Scratched hardwood</li>
-                        <li>Damaged tile and stone</li>
-                        <li>Costly rework</li>
-                        <li>Project delays</li>
-                        <li>Unhappy homeowners</li>
-                    </ul>
-                </div>
-                <div class="value-card value-with">
-                    <h3>With Our System</h3>
-                    <ul>
-                        <li>Flawless finished floors</li>
-                        <li>On-time project delivery</li>
-                        <li>Happy homeowners</li>
-                        <li>Protected reputation</li>
-                        <li>Peace of mind</li>
-                    </ul>
+    <main>
+        <section class="hero">
+            <div class="hero-bg" aria-hidden="true"></div>
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="container hero-content">
+                <p class="eyebrow hero-slogan">Protect the product. Showcase the quality.</p>
+                <h1>Protection That Matches the Standard of the Build.</h1>
+                <p>Premium floor protection for custom homes, finished surfaces, and builder-ready jobsites across Utah.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary" target="_blank" rel="noopener">Get a Real Quote</a>
+                    <a href="#work" class="btn btn-secondary">View Our Work</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="gallery" class="section section-light">
-        <div class="container">
-            <span class="eyebrow">Recent Projects</span>
-            <h2>Proudly protecting Utah’s finest homes.</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/Teuschers_Dining_4675.webp" alt="Luxury dining room protection example" loading="lazy">
-                    <p class="gallery-caption">Project Image</p>
+        <section class="section value-section" id="about">
+            <div class="container">
+                <div class="section-heading centered">
+                    <p class="eyebrow">Builder Value</p>
+                    <h2>Built for Builders Who Care About the Final Walkthrough.</h2>
                 </div>
-                <div class="gallery-item">
-                    <img src="images/Teuschers_Kitchen_4715.webp" alt="Premium kitchen protection example" loading="lazy">
-                    <p class="gallery-caption">Project Image</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Teuschers_PBath_4825.webp" alt="Luxury bathroom protection example" loading="lazy">
-                    <p class="gallery-caption">Project Image</p>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/Teuschers_Dining_4675.webp" alt="Luxury home protection example" loading="lazy">
-                    <p class="gallery-caption">Project Image</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="quote" class="section section-cta">
-        <div class="container">
-            <h2>Get a Fast, Accurate Quote</h2>
-            <p>Send the plans, square footage, or rooms needing protection and we'll help estimate the right protection package for the project.</p>
-            <div class="cta-buttons">
-                <a href="mailto:floorprotectionpros@gmail.com" class="btn btn-primary">Request a Quote</a>
-                <a href="tel:3855609171" class="btn btn-secondary">Call / Text Us</a>
+                <div class="value-grid">
+                    <article class="value-card">
+                        <span class="card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 3 4.5 6.5v5.7c0 4.4 3.1 7.9 7.5 9.3 4.4-1.4 7.5-4.9 7.5-9.3V6.5L12 3Z"/>
+                                <path d="m9 12 2 2 4-5"/>
+                            </svg>
+                        </span>
+                        <h3>Prevent Damage</h3>
+                        <p>Protect hardwood, tile, stone, LVP, and finished surfaces before scratches, chips, or stains put the final walkthrough at risk.</p>
+                    </article>
+
+                    <article class="value-card">
+                        <span class="card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19h16"/>
+                                <path d="M6 15h12"/>
+                                <path d="M8 11h8"/>
+                                <path d="M10 7h4"/>
+                            </svg>
+                        </span>
+                        <h3>Maintain Presentation</h3>
+                        <p>Clean protection helps clients see the quality before the home is finished.</p>
+                    </article>
+
+                    <article class="value-card">
+                        <span class="card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12a9 9 0 1 1-2.6-6.4"/>
+                                <path d="m21 4-9 9-3-3"/>
+                            </svg>
+                        </span>
+                        <h3>Reduce Rework</h3>
+                        <p>Protecting finished floors protects more than the material. It protects the builder's reputation.</p>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="statement-section">
+            <div class="statement-bg" aria-hidden="true"></div>
+            <div class="statement-overlay" aria-hidden="true"></div>
+            <div class="container statement-content">
+                <p class="eyebrow">Presentation Matters</p>
+                <h2>Finished floors should not look like an afterthought during construction.</h2>
+                <p>The final walkthrough starts long before the final clean. Every covered surface sends a message: this home is being handled with care.</p>
+            </div>
+        </section>
+
+        <section class="section system-section" id="system">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Our Protection System</p>
+                    <h2>A layered approach built for active custom-home jobsites.</h2>
+                </div>
+
+                <div class="process-grid">
+                    <article class="process-step">
+                        <span>01</span>
+                        <h3>Walk the Project</h3>
+                        <p>We identify high-traffic areas, finished surfaces, stairs, landings, and vulnerable transitions.</p>
+                    </article>
+                    <article class="process-step">
+                        <span>02</span>
+                        <h3>Install the Right Materials</h3>
+                        <p>We use Floorotex, cardboard, duct tape where appropriate, and no-residue edge tape based on the surface and situation.</p>
+                    </article>
+                    <article class="process-step">
+                        <span>03</span>
+                        <h3>Keep Crews Moving</h3>
+                        <p>Protection is installed so work can continue while finished floors stay covered and presentable.</p>
+                    </article>
+                    <article class="process-step">
+                        <span>04</span>
+                        <h3>Maintain the Standard</h3>
+                        <p>Optional service visits keep protection repaired, clean, and secure throughout the build.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section comparison-section" id="builders">
+            <div class="container">
+                <div class="section-heading centered">
+                    <p class="eyebrow">The Cost of Damage</p>
+                    <h2>Protection Costs Less Than Replacement.</h2>
+                </div>
+
+                <div class="comparison-grid">
+                    <article class="comparison-panel muted-panel">
+                        <h3>Without Proper Protection</h3>
+                        <ul>
+                            <li>Scratched hardwood</li>
+                            <li>Chipped tile or stone</li>
+                            <li>Stained finished flooring</li>
+                            <li>Delayed walkthroughs</li>
+                            <li>Expensive rework</li>
+                            <li>Frustrated homeowners</li>
+                        </ul>
+                    </article>
+
+                    <article class="comparison-panel gold-panel">
+                        <h3>With Floor Protection Pros</h3>
+                        <ul>
+                            <li>Cleaner jobsite presentation</li>
+                            <li>Protected finished surfaces</li>
+                            <li>Fewer last-minute flooring repairs</li>
+                            <li>Better homeowner impression</li>
+                            <li>More professional builder experience</li>
+                            <li>Stronger builder reputation</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section work-section" id="work">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">Recent Work</p>
+                    <h2>Clean coverage for active homes, stair systems, and high-traffic spaces.</h2>
+                </div>
+
+                <div class="work-grid">
+                    <article class="work-card feature-work">
+                        <img src="IMG_0926.jpg" alt="Temporary floor protection installed across a large active construction space" loading="lazy">
+                        <div class="work-caption">
+                            <h3>Full-Room Coverage</h3>
+                            <p>Large surfaces protected for active trades.</p>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <img src="Henrie-Tiek+007.webp" alt="Finished hardwood and stair area in a luxury home" loading="lazy">
+                        <div class="work-caption">
+                            <h3>Stair Detailing</h3>
+                            <p>Finished stairs and landings handled with care.</p>
+                        </div>
+                    </article>
+
+                    <article class="work-card">
+                        <img src="Teuschers_Kitchen_4715.webp" alt="Luxury kitchen with finished surfaces and high-traffic flooring" loading="lazy">
+                        <div class="work-caption">
+                            <h3>Landing Transitions</h3>
+                            <p>Clean transitions between rooms and finish types.</p>
+                        </div>
+                    </article>
+
+                    <article class="work-card placeholder-card">
+                        <div class="placeholder-art" aria-hidden="true"></div>
+                        <div class="work-caption">
+                            <h3>High-Traffic Work Zones</h3>
+                            <p>Project image coming soon.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-band" id="quote">
+            <div class="container quote-band-inner">
+                <div>
+                    <p class="eyebrow dark-eyebrow">Get a Quote</p>
+                    <h2>Request a Real Project Quote.</h2>
+                    <p>A protected floor tells homeowners their builder pays attention. Send the project size, surfaces, timeline, and site details so we can price the right protection package.</p>
+                    <a href="QuoteTool.html" class="rough-link">Need a quick estimate first? Use the rough quote calculator.</a>
+                </div>
+                <a href="contact.html" class="btn btn-dark" target="_blank" rel="noopener">Open Quote Form</a>
+            </div>
+        </section>
+
+        <section class="section contact-section" id="contact">
+            <div class="container contact-layout">
+                <div class="contact-copy">
+                    <p class="eyebrow">Contact</p>
+                    <h2>Responsive. Professional. Built Around the Jobsite.</h2>
+                    <p>Founded by Michael Ballard and Carter Roundy, Floor Protection Pros is built around dependable field execution, clear communication, and clean presentation for builders who care about the final product.</p>
+
+                    <div class="contact-actions">
+                        <a href="tel:3855609171" class="btn btn-primary">Call 385-560-9171</a>
+                        <a href="mailto:floorprotectionpros@gmail.com" class="btn btn-secondary">Email Us</a>
+                    </div>
+                </div>
+
+                <div class="contact-panel">
+                    <div class="founders">
+                        <figure>
+                            <img src="michael-ballard-headshot.jpg" alt="Michael Ballard, co-founder of Floor Protection Pros" loading="lazy">
+                            <figcaption>Michael Ballard</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="carter-roundy-headshot.jpg" alt="Carter Roundy, co-founder of Floor Protection Pros" loading="lazy">
+                            <figcaption>Carter Roundy</figcaption>
+                        </figure>
+                    </div>
+
+                    <dl class="contact-list">
+                        <div>
+                            <dt>Phone</dt>
+                            <dd><a href="tel:3855609171">385-560-9171</a></dd>
+                        </div>
+                        <div>
+                            <dt>Email</dt>
+                            <dd><a href="mailto:floorprotectionpros@gmail.com">floorprotectionpros@gmail.com</a></dd>
+                        </div>
+                        <div>
+                            <dt>Service Area</dt>
+                            <dd>Utah County and surrounding areas</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Floor Protection Pros</h3>
-                    <p>Premium floor protection for luxury homes across Utah.</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#system">Our System</a>
-                    <a href="#protect">What We Protect</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#quote">Get a Quote</a>
-                </div>
-                <div class="footer-contact">
-                    <p>Carter Roundy<br>
-                    Floor Protection Pros<br>
-                    385-560-9171<br>
-                    <a href="mailto:floorprotectionpros@gmail.com">floorprotectionpros@gmail.com</a></p>
-                    <p>Service Area: Utah County and surrounding areas</p>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-mark footer-logo">
+                    <img src="floor-protection-pros-shield.png" alt="" aria-hidden="true">
+                </span>
+                <div>
+                    <p class="footer-name">Floor Protection Pros</p>
+                    <p class="footer-tagline">Premium floor protection for custom homes and finished surfaces.</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Floor Protection Pros. All rights reserved.</p>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <p>Quick Links</p>
+                <a href="#about">About</a>
+                <a href="#system">Our System</a>
+                <a href="#work">Our Work</a>
+                <a href="QuoteTool.html">Rough Calculator</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="footer-contact">
+                <p>Contact</p>
+                <a href="tel:3855609171">385-560-9171</a>
+                <a href="mailto:floorprotectionpros@gmail.com">floorprotectionpros@gmail.com</a>
+                <span>Utah County and surrounding areas</span>
             </div>
         </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Floor Protection Pros. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script src="index.scripts.js"></script>
 </body>
 </html>
