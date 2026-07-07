@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Quote | Floor Protection Pros</title>
+    <meta name="description" content="Request a professional floor protection quote for a custom home project across Utah County and surrounding areas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.styles.css">
+    <style>
+        body {
+            background:
+                radial-gradient(circle at top right, rgba(197, 160, 90, 0.1), transparent 34rem),
+                var(--bg);
+        }
+
+        .quote-page {
+            padding: 138px 0 104px;
+        }
+
+        .quote-layout {
+            display: grid;
+            grid-template-columns: 0.82fr 1.18fr;
+            gap: 72px;
+            align-items: start;
+        }
+
+        .quote-intro {
+            position: sticky;
+            top: 118px;
+        }
+
+        .quote-intro h1 {
+            margin-bottom: 24px;
+        }
+
+        .quote-intro p:not(.eyebrow) {
+            max-width: 470px;
+            color: var(--muted);
+            font-size: 1.03rem;
+        }
+
+        .quote-reassurance {
+            margin-top: 34px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+        }
+
+        .quote-reassurance strong {
+            display: block;
+            color: var(--gold);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .quote-reassurance span {
+            color: rgba(245, 240, 230, 0.78);
+        }
+
+        .quote-form-card,
+        .quote-success {
+            padding: 38px;
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+                var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .quote-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .quote-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .quote-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .quote-field label,
+        .surface-group legend {
+            color: var(--gold);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .quote-field input,
+        .quote-field select,
+        .quote-field textarea {
+            width: 100%;
+            min-height: 52px;
+            padding: 13px 14px;
+            background: #211f1b;
+            border: 1px solid rgba(245, 240, 230, 0.12);
+            border-radius: 5px;
+            color: var(--text);
+            font: inherit;
+            outline: none;
+            transition: border-color var(--ease), box-shadow var(--ease), background var(--ease);
+        }
+
+        .quote-field textarea {
+            min-height: 132px;
+            resize: vertical;
+        }
+
+        .quote-field input::placeholder,
+        .quote-field textarea::placeholder {
+            color: rgba(167, 155, 141, 0.5);
+        }
+
+        .quote-field input:focus,
+        .quote-field select:focus,
+        .quote-field textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(197, 160, 90, 0.12);
+            background: #25221d;
+        }
+
+        .quote-field input.error,
+        .quote-field select.error {
+            border-color: rgba(216, 121, 102, 0.72);
+        }
+
+        .surface-group {
+            grid-column: 1 / -1;
+            padding: 22px;
+            border: 1px solid rgba(245, 240, 230, 0.1);
+            border-radius: 8px;
+        }
+
+        .surface-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .surface-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 10px 12px;
+            color: rgba(245, 240, 230, 0.8);
+            background: rgba(255, 255, 255, 0.028);
+            border: 1px solid rgba(245, 240, 230, 0.08);
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .surface-option input {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--gold);
+            flex: 0 0 auto;
+        }
+
+        .quote-note {
+            grid-column: 1 / -1;
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .quote-submit {
+            grid-column: 1 / -1;
+            width: 100%;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        .quote-submit:disabled {
+            cursor: wait;
+            opacity: 0.72;
+            transform: none;
+        }
+
+        .quote-success {
+            text-align: center;
+        }
+
+        .quote-success h2 {
+            margin-bottom: 12px;
+        }
+
+        .quote-success p {
+            max-width: 460px;
+            margin: 0 auto 28px;
+            color: var(--muted);
+        }
+
+        .quote-status {
+            grid-column: 1 / -1;
+            padding: 16px;
+            border: 1px solid rgba(216, 121, 102, 0.38);
+            border-radius: 8px;
+            background: rgba(216, 121, 102, 0.1);
+        }
+
+        .quote-status h3 {
+            color: var(--text);
+            font-size: 1.28rem;
+            margin-bottom: 6px;
+        }
+
+        .quote-status p {
+            color: var(--muted);
+        }
+
+        @media (max-width: 920px) {
+            .quote-layout {
+                grid-template-columns: 1fr;
+                gap: 44px;
+            }
+
+            .quote-intro {
+                position: static;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .quote-page {
+                padding: 112px 0 78px;
+            }
+
+            .quote-form-card,
+            .quote-success {
+                padding: 28px 22px;
+            }
+
+            .quote-form-grid,
+            .surface-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="nav scrolled" id="top">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo" aria-label="Floor Protection Pros home">
+                <span class="logo-mark">
+                    <img src="floor-protection-pros-shield.png" alt="" aria-hidden="true">
+                </span>
+                <span class="logo-text">
+                    <span>Floor Protection</span>
+                    <span>Pros</span>
+                </span>
+            </a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html#packages">Packages</a>
+                <a href="index.html#work">Our Work</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="quote.html" class="nav-cta" aria-current="page">Get a Quote</a>
+            </nav>
+
+            <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+
+        <div class="nav-mobile" aria-hidden="true">
+            <a href="index.html#packages">Packages</a>
+            <a href="index.html#work">Our Work</a>
+            <a href="index.html#how-it-works">How It Works</a>
+            <a href="quote.html">Get a Quote</a>
+        </div>
+    </header>
+
+    <main class="quote-page">
+        <div class="container quote-layout">
+            <section class="quote-intro" aria-labelledby="quote-title">
+                <p class="eyebrow">Request a Quote</p>
+                <h1 id="quote-title">Tell Us About the Project.</h1>
+                <p>Send us the project details and we'll recommend the protection package that fits the scope, schedule, and finish level.</p>
+
+                <div class="quote-reassurance">
+                    <strong>Peace of Mind</strong>
+                    <span>Floor protection handled from install to removal.</span>
+                </div>
+            </section>
+
+            <section aria-label="Quote request form">
+                <form id="quote-request-form" class="quote-form-card" action="https://formspree.io/f/xojronko" method="POST" novalidate>
+                    <div class="quote-form-grid">
+                        <div class="quote-field">
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" autocomplete="name" required>
+                        </div>
+
+                        <div class="quote-field">
+                            <label for="company">Company / Builder Name</label>
+                            <input id="company" name="company_builder_name" type="text" autocomplete="organization" required>
+                        </div>
+
+                        <div class="quote-field">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" autocomplete="email" required>
+                        </div>
+
+                        <div class="quote-field">
+                            <label for="phone">Phone</label>
+                            <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                        </div>
+
+                        <div class="quote-field">
+                            <label for="location">Project Location / City</label>
+                            <input id="location" name="project_location_city" type="text" required>
+                        </div>
+
+                        <div class="quote-field">
+                            <label for="square-footage">Approx. Square Footage</label>
+                            <input id="square-footage" name="approximate_square_footage_needing_protection" type="number" min="1" step="1" inputmode="numeric" required>
+                        </div>
+
+                        <div class="quote-field">
+                            <label for="timeline">Project Timeline</label>
+                            <input id="timeline" name="project_timeline_when_protection_is_needed" type="text" placeholder="Example: First week of August" required>
+                        </div>
+
+                        <div class="quote-field">
+                            <label for="package">Which Package?</label>
+                            <select id="package" name="package_interest" required>
+                                <option value="" disabled selected>Select a package...</option>
+                                <option value="Initial Install">Initial Install</option>
+                                <option value="Standard Maintenance">Standard Maintenance</option>
+                                <option value="All-Inclusive Protection">All-Inclusive Protection</option>
+                                <option value="Not sure - recommend the best fit">Not sure - recommend the best fit</option>
+                            </select>
+                        </div>
+
+                        <fieldset class="surface-group">
+                            <legend>Surfaces Needing Protection</legend>
+                            <div class="surface-grid">
+                                <label class="surface-option"><input type="checkbox" name="surfaces_needing_protection" value="Hardwood"> Hardwood</label>
+                                <label class="surface-option"><input type="checkbox" name="surfaces_needing_protection" value="Tile / Stone"> Tile / Stone</label>
+                                <label class="surface-option"><input type="checkbox" name="surfaces_needing_protection" value="LVP or other hard-surface flooring"> LVP or other hard-surface flooring</label>
+                                <label class="surface-option"><input type="checkbox" name="surfaces_needing_protection" value="Stairs / Landings"> Stairs / Landings</label>
+                                <label class="surface-option"><input type="checkbox" name="surfaces_needing_protection" value="Carpet"> Carpet</label>
+                                <label class="surface-option"><input type="checkbox" name="surfaces_needing_protection" value="Countertops"> Countertops</label>
+                                <label class="surface-option"><input type="checkbox" name="surfaces_needing_protection" value="Cabinets"> Cabinets</label>
+                                <label class="surface-option"><input type="checkbox" name="surfaces_needing_protection" value="Corners"> Corners</label>
+                                <label class="surface-option"><input type="checkbox" name="surfaces_needing_protection" value="Not sure yet"> Not sure yet</label>
+                            </div>
+                        </fieldset>
+
+                        <div class="quote-field full">
+                            <label for="notes">Notes / Project Details</label>
+                            <textarea id="notes" name="notes_project_details" placeholder="Floor types, access notes, schedule details, or anything else we should know..."></textarea>
+                        </div>
+
+                        <p class="quote-note full">Plans can be emailed separately if needed.</p>
+
+                        <input type="hidden" name="request_type" value="Website Quote Request">
+                        <button type="submit" class="btn btn-primary quote-submit">Submit Quote Request</button>
+
+                        <div id="quote-status" class="quote-status" hidden aria-live="polite"></div>
+                    </div>
+                </form>
+
+                <div id="quote-success" class="quote-success" hidden>
+                    <p class="eyebrow">Submitted</p>
+                    <h2>Quote Request Received</h2>
+                    <p>Thanks &mdash; we received your project details and will follow up shortly.</p>
+                    <a href="index.html" class="btn btn-primary">Back to Home</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-mark footer-logo">
+                    <img src="floor-protection-pros-shield.png" alt="" aria-hidden="true">
+                </span>
+                <div>
+                    <p class="footer-name">Floor Protection Pros</p>
+                    <p class="footer-tagline">We protect the finished product, so you can focus on building it.</p>
+                </div>
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+                <p>Quick Links</p>
+                <a href="index.html#packages">Packages</a>
+                <a href="index.html#work">Our Work</a>
+                <a href="index.html#how-it-works">How It Works</a>
+                <a href="quote.html">Get a Quote</a>
+            </nav>
+
+            <div class="footer-contact">
+                <p>Contact</p>
+                <a href="tel:3855609171">385-560-9171</a>
+                <a href="mailto:floorprotectionpros@gmail.com">floorprotectionpros@gmail.com</a>
+                <span>Utah County and surrounding areas</span>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Floor Protection Pros. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="index.scripts.js"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            var form = document.getElementById('quote-request-form');
+            var success = document.getElementById('quote-success');
+            var status = document.getElementById('quote-status');
+            var submit = form.querySelector('.quote-submit');
+            var requiredFields = form.querySelectorAll('[required]');
+
+            function showError() {
+                status.innerHTML = '<h3>Something went wrong</h3><p>Please email us directly at floorprotectionpros@gmail.com or call/text 385-560-9171.</p>';
+                status.hidden = false;
+            }
+
+            requiredFields.forEach(function (field) {
+                field.addEventListener('input', function () {
+                    field.classList.remove('error');
+                });
+                field.addEventListener('change', function () {
+                    field.classList.remove('error');
+                });
+            });
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                var valid = true;
+                requiredFields.forEach(function (field) {
+                    if (!field.checkValidity()) {
+                        field.classList.add('error');
+                        valid = false;
+                    }
+                });
+
+                var email = document.getElementById('email');
+                if (email.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+                    email.classList.add('error');
+                    valid = false;
+                }
+
+                if (!valid) return;
+
+                submit.disabled = true;
+                submit.textContent = 'Sending...';
+                status.hidden = true;
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                }).then(function (response) {
+                    if (!response.ok) throw new Error('Formspree submission failed');
+
+                    form.hidden = true;
+                    success.hidden = false;
+                }).catch(function () {
+                    showError();
+                    submit.disabled = false;
+                    submit.textContent = 'Submit Quote Request';
+                });
+            });
+        }());
+    </script>
+</body>
+</html>
